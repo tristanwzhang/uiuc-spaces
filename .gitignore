@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Local scratch data (raw API responses kept for debugging)
+data/raw/
+
+# Never commit private keys (SerpApi lives in the shell or CI secrets)
+.env
+*.key

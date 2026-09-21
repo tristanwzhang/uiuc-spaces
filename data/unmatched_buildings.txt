@@ -1,0 +1,50 @@
+Course Explorer buildings with no confident match to a map building.
+Add real matches to BUILDING_ALIASES in scripts/build_class_estimates.py.
+
+  603 meetings  n.a.
+  400 meetings  Location Pending
+   50 meetings  1010 W Nevada
+   29 meetings  Veterinary Teaching Hospital
+   28 meetings  Dance Studio
+   23 meetings  Illinois Street Residence Lng
+   22 meetings  200 S Wacker
+   18 meetings  1207 W Oregon
+   16 meetings  901 W Oregon
+   14 meetings  Library
+   14 meetings  Allen Residence Hall
+   13 meetings  907 1/2 W Nevada
+   13 meetings  Ceramics Kiln House
+   12 meetings  Chemical and Life Sci Lab
+   11 meetings  Weston Hall
+   11 meetings  1203 1/2 W Nevada
+   10 meetings  1205 W Nevada
+   10 meetings  Engineering Sciences Building
+    9 meetings  Storefront Studio
+    9 meetings  Campus Recreation Center East
+    9 meetings  Richmond Studio
+    8 meetings  1205 W Oregon
+    8 meetings  Plant Sciences Laboratory
+    8 meetings  Outdoor Space
+    7 meetings  Student Dining & Res Program
+    7 meetings  Micro & Nanotechnology Lab
+    7 meetings  Art-East Annex, Studio 2
+    5 meetings  Krannert Art Museum
+    5 meetings  Irwin Doctoral Hall
+    5 meetings  Child Development Laboratory
+    4 meetings  Noble Hall
+    4 meetings  Illini Center
+    4 meetings  Nuclear Radiations Laboratory
+    3 meetings  South Farms
+    3 meetings  Meat Science Laboratory
+    3 meetings  Pennsylvania Lounge Bld - PAR
+    2 meetings  Architecture Annex
+    2 meetings  Inst Gov & Public Affairs Bldg
+    2 meetings  Early Child Development Lab
+    2 meetings  805 W Pennsylvania
+    1 meetings  Japan House
+    1 meetings  Danville IL
+    1 meetings  Nat Center for Suprcomp Appl
+    1 meetings  Agricultural Bioprocess Lab
+    1 meetings  FAR Meeting Space
+    1 meetings  Lincoln Avenue Residence Hall
+    1 meetings  Washington DC

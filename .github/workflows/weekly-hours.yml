@@ -1,0 +1,45 @@
+name: Refresh building hours
+
+# Library and dining feeds only publish 7 days ahead, so the data goes stale
+# without this — most visibly around finals and breaks, when hours change.
+on:
+  schedule:
+    - cron: "20 9 * * 1"     # Mondays, 4:20am campus time
+  workflow_dispatch:          # or run it by hand from the Actions tab
+
+permissions:
+  contents: write             # to commit the refreshed data file
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild hours
+        run: python3 scripts/build_hours.py
+
+      # Only if a SERPAPI_KEY secret exists: refresh Google listing hours too.
+      - name: Refresh Google hours
+        if: ${{ secrets.SERPAPI_KEY != '' }}
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          python3 scripts/fetch_google_hours.py
+          python3 scripts/build_hours.py
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "hours bot"
+          git config user.email "actions@github.com"
+          git add data/building_hours.json data/google_hours.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Hours unchanged."
+          else
+            git commit -m "Refresh building hours"
+            git push
+          fi

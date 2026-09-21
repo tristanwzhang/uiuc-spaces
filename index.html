@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UIUC Spaces</title>
+<!-- Open connections early to the servers the map needs -->
+<link rel="preconnect" href="https://cesium.com" crossorigin>
+<link rel="preconnect" href="https://api.cesium.com" crossorigin>
+<link rel="preconnect" href="https://assets.ion.cesium.com" crossorigin>
+<script defer src="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Cesium.js"></script>
+<link href="https://cesium.com/downloads/cesiumjs/releases/1.111/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  [hidden] { display: none !important; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: #0a0e14;
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  #cesiumContainer {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Hide Cesium default UI clutter (credits stay visible — required) */
+  .cesium-viewer-toolbar,
+  .cesium-viewer-animationContainer,
+  .cesium-viewer-timelineContainer,
+  .cesium-viewer-fullscreenContainer,
+  .cesium-viewer-vrContainer {
+    display: none !important;
+  }
+
+  /* Map credits: one small, quiet line at the bottom centre */
+  .cesium-viewer-bottom {
+    left: 50% !important;
+    right: auto !important;
+    bottom: 10px !important;
+    transform: translateX(-50%);
+    padding: 0 !important;
+  }
+
+  .cesium-widget-credits {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    font-size: 10px !important;
+    color: #6b7488 !important;
+    opacity: 0.8;
+  }
+
+  .cesium-credit-textContainer { display: inline-flex !important; gap: 6px; }
+
+  .cesium-widget-credits a,
+  .cesium-credit-expand-link { color: #8b93a6 !important; }
+
+  .cesium-credit-logoContainer img { height: 14px; opacity: 0.7; }
+
+  /* ── Loading indicator ── */
+  #loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 120;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 20px;
+    background: rgba(10,14,20,0.8);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #c9d1de;
+    font-size: 13px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  #loading.done { opacity: 0; }
+
+  .loading-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.7); }
+  }
+
+  /* ── Building labels (page text over the map) ── */
+  #labels {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .map-label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-origin: 50% 100%;
+    will-change: transform;
+  }
+
+  .map-label.is-hidden {
+    opacity: 0;
+  }
+
+  .map-label-text {
+    white-space: pre;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #f3f4f8;
+    text-shadow:
+      0 0 3px rgba(28, 31, 43, 0.95),
+      0 0 1px rgba(28, 31, 43, 1),
+      0 1px 2px rgba(28, 31, 43, 0.9);
+  }
+
+  .map-label-dot {
+    width: 5px;
+    height: 5px;
+    margin-top: 4px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 1.5px rgba(28, 31, 43, 0.6);
+  }
+
+  /* ── Header ── */
+  #header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 28px 60px;
+    background: linear-gradient(to bottom, rgba(10,14,20,0.92) 40%, transparent);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  #header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0f4f8;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  #header .sub {
+    font-size: 12px;
+    color: #5a6478;
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  #header .disclaimer {
+    font-size: 11px;
+    color: #4a5365;
+    margin-top: 2px;
+    font-weight: 400;
+  }
+
+  /* ── Stats chips ── */
+  #stats {
+    position: absolute;
+    top: 68px;
+    left: 28px;
+    z-index: 100;
+    display: flex;
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .chip {
+    background: rgba(10,14,20,0.82);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 6px 13px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .chip-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+  }
+
+  .chip-val { font-weight: 600; color: #f0f4f8; }
+  .chip-lbl { color: #5a6478; }
+
+  /* ── Legend ── */
+  #legend {
+    position: absolute;
+    bottom: 36px;
+    left: 28px;
+    z-index: 100;
+    pointer-events: none;
+    background: rgba(10,14,20,0.78);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 10px 12px;
+    backdrop-filter: blur(8px);
+  }
+
+  .leg-title {
+    font-size: 11px;
+    color: #5a6478;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+
+  .leg-bar {
+    width: 150px;
+    height: 7px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #22c55e, #eab308, #ef4444);
+  }
+
+  .leg-ends {
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 5px;
+  }
+
+  .leg-ends span { font-size: 11px; color: #5a6478; }
+
+  .leg-extra {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .leg-extra span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: #5a6478;
+  }
+
+  .leg-extra i {
+    width: 9px; height: 9px;
+    border-radius: 2px;
+  }
+
+  /* ── Tooltip ── */
+  #tooltip {
+    position: absolute;
+    z-index: 200;
+    background: rgba(10,14,20,0.95);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 16px 18px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.12s ease;
+    min-width: 200px;
+    backdrop-filter: blur(12px);
+  }
+
+  #tooltip.show { opacity: 1; }
+
+  #tt-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f4f8;
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .tt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #5a6478;
+    margin-top: 4px;
+  }
+
+  .tt-row span:last-child {
+    font-weight: 500;
+    color: #c9d1de;
+  }
+
+  .tt-bar-bg {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 2px;
+    margin-top: 11px;
+    overflow: hidden;
+  }
+
+  .tt-bar-fill {
+    height: 100%;
+    border-radius: 2px;
+  }
+
+  #tt-note {
+    font-size: 11px;
+    color: #5a6478;
+    margin-top: 9px;
+    line-height: 1.4;
+  }
+
+  #tt-spaces {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  /* ── Check-in panel ── */
+  #panel {
+    position: absolute;
+    right: 28px;
+    bottom: 96px;
+    z-index: 150;
+    width: 260px;
+    background: rgba(10,14,20,0.95);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 16px 18px 14px;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  #panel.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  #panel-close {
+    position: absolute;
+    top: 10px; right: 12px;
+    background: none;
+    border: none;
+    color: #5a6478;
+    font-size: 17px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 2px 4px;
+  }
+
+  #panel-close:hover { color: #c9d1de; }
+
+  #panel-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #f0f4f8;
+    line-height: 1.3;
+    padding-right: 18px;
+  }
+
+  #panel-spaces {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .space-btn {
+    font-family: inherit;
+    font-size: 11.5px;
+    color: #5a6478;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 14px;
+    padding: 4px 11px;
+    cursor: pointer;
+  }
+
+  .space-btn.selected {
+    color: #f0f4f8;
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.18);
+  }
+
+  #panel-now {
+    font-size: 11.5px;
+    color: #5a6478;
+    margin-top: 4px;
+  }
+
+  .panel-q {
+    font-size: 12px;
+    color: #c9d1de;
+    margin-top: 14px;
+  }
+
+  .checkin-row {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .checkin-btn {
+    flex: 1;
+    font-family: inherit;
+    font-size: 12px;
+    color: #c9d1de;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 7px;
+    padding: 7px 0;
+    cursor: pointer;
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+
+  .checkin-btn:hover {
+    background: rgba(255,255,255,0.11);
+    color: #f0f4f8;
+  }
+
+  #panel-thanks {
+    font-size: 11.5px;
+    color: #4ade80;
+    margin-top: 9px;
+    min-height: 14px;
+  }
+
+  #panel-note {
+    font-size: 10.5px;
+    color: #3d4757;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* ── Privacy note ── */
+  #privacy-note {
+    position: absolute;
+    bottom: 26px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    font-size: 10px;
+    color: #5a6478;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  @media (max-width: 640px) {
+    #privacy-note { display: none; }
+  }
+
+  /* ── Controls hint ── */
+  #hint {
+    position: absolute;
+    bottom: 36px;
+    right: 28px;
+    z-index: 100;
+    pointer-events: none;
+    text-align: right;
+    background: rgba(10,14,20,0.78);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 8px 12px;
+    backdrop-filter: blur(8px);
+  }
+
+  #hint p {
+    font-size: 11px;
+    color: #8a93a8;
+    line-height: 1.9;
+  }
+  /* ── Small screens ── */
+  @media (max-width: 640px) {
+    #header { padding: 14px 16px 50px; }
+    #header h1 { font-size: 16px; }
+    #header .sub { display: none; }
+    #header .disclaimer { font-size: 10px; margin-top: 1px; }
+    #stats { top: 52px; left: 16px; right: 16px; flex-wrap: wrap; gap: 6px; }
+    .chip { padding: 5px 10px; font-size: 11.5px; }
+    #legend { left: 16px; bottom: 40px; }
+    #hint { display: none; }
+    #panel { right: 16px; left: 16px; width: auto; bottom: 40px; }
+    .cesium-widget-credits { font-size: 9px !important; }
+  }
+</style>
+</head>
+<body>
+
+<div id="cesiumContainer"></div>
+<div id="loading"><span class="loading-dot"></span>Loading campus…</div>
+<div id="labels"></div>
+
+<div id="header">
+  <div>
+    <h1>UIUC Spaces</h1>
+    <div class="sub" id="header-sub">University of Illinois Urbana-Champaign</div>
+    <div class="disclaimer">A student project · not affiliated with the University of Illinois</div>
+  </div>
+</div>
+
+<div id="stats">
+  <div class="chip">
+    <div class="chip-dot" style="background:#22c55e"></div>
+    <span class="chip-val" id="s-quiet">—</span>
+    <span class="chip-lbl">quiet</span>
+  </div>
+  <div class="chip">
+    <div class="chip-dot" style="background:#eab308"></div>
+    <span class="chip-val" id="s-mod">—</span>
+    <span class="chip-lbl">moderate</span>
+  </div>
+  <div class="chip">
+    <div class="chip-dot" style="background:#ef4444"></div>
+    <span class="chip-val" id="s-busy">—</span>
+    <span class="chip-lbl">busy</span>
+  </div>
+</div>
+
+<div id="legend">
+  <div class="leg-title">Occupancy</div>
+  <div class="leg-bar"></div>
+  <div class="leg-ends"><span>Empty</span><span>Full</span></div>
+  <div class="leg-extra">
+    <span><i style="background:#3a3f4f"></i>Closed</span>
+    <span><i style="background:#6f5c63"></i>No data</span>
+  </div>
+</div>
+
+<div id="tooltip">
+  <div id="tt-name"></div>
+  <div class="tt-row"><span>Occupancy</span><span id="tt-occ"></span></div>
+  <div class="tt-row"><span>Status</span><span id="tt-status"></span></div>
+  <div class="tt-row"><span>Source</span><span id="tt-source"></span></div>
+  <div class="tt-bar-bg"><div class="tt-bar-fill" id="tt-fill"></div></div>
+  <div id="tt-spaces" hidden></div>
+  <div id="tt-note"></div>
+</div>
+
+<div id="panel">
+  <button id="panel-close" aria-label="Close">×</button>
+  <div id="panel-name"></div>
+  <div id="panel-spaces" hidden></div>
+  <div id="panel-now"></div>
+  <div class="panel-q">How busy is it right now?</div>
+  <div class="checkin-row">
+    <button class="checkin-btn" data-level="quiet">Quiet</button>
+    <button class="checkin-btn" data-level="okay">Okay</button>
+    <button class="checkin-btn" data-level="packed">Packed</button>
+  </div>
+  <div id="panel-thanks"></div>
+  <div id="panel-note"></div>
+</div>
+
+<div id="privacy-note">Anonymous usage stats help improve this map.</div>
+
+<div id="hint">
+  <p>Drag · move<br>Pinch or scroll · zoom<br>Ctrl + drag · tilt &amp; rotate<br>H · back to campus</p>
+</div>
+
+<script defer src="basemap-render.js?v=35"></script>
+<script defer src="app.js?v=49"></script>
+</body>
+</html>

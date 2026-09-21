@@ -1,0 +1,6623 @@
+{
+ "built_at": "2026-09-21T05:34:58+00:00",
+ "campusClosedDates": [
+  "2026-09-07",
+  "2026-11-26",
+  "2026-11-27"
+ ],
+ "buildings": {
+  "Activities and Recreation Center": {
+   "source": "Campus Recreation hours",
+   "sourceUrl": "https://campusrec.illinois.edu/hours",
+   "valid": [
+    "2026-08-24",
+    "2026-12-17"
+   ],
+   "weekly": {
+    "monday": [
+     [
+      6,
+      23
+     ]
+    ],
+    "tuesday": [
+     [
+      6,
+      23
+     ]
+    ],
+    "wednesday": [
+     [
+      6,
+      23
+     ]
+    ],
+    "thursday": [
+     [
+      6,
+      23
+     ]
+    ],
+    "friday": [
+     [
+      6,
+      22
+     ]
+    ],
+    "saturday": [
+     [
+      9,
+      22
+     ]
+    ],
+    "sunday": [
+     [
+      9,
+      22
+     ]
+    ]
+   },
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Agricultural Engineering Sciences": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "saturday": [
+     [
+      13.0,
+      17.0
+     ]
+    ],
+    "sunday": [
+     [
+      13.0,
+      17.0
+     ]
+    ]
+   }
+  },
+  "Altgeld Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Animal Sciences Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      12.0
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Architecture Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.5,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.5,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.5,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.5,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      6.5,
+      17.0
+     ]
+    ],
+    "saturday": [
+     [
+      6.5,
+      17.0
+     ]
+    ],
+    "sunday": [
+     [
+      6.5,
+      22.0
+     ]
+    ]
+   }
+  },
+  "Armory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        5.0,
+        21.0
+       ]
+      ],
+      "tuesday": [
+       [
+        5.0,
+        21.0
+       ]
+      ],
+      "wednesday": [
+       [
+        5.0,
+        21.0
+       ]
+      ],
+      "thursday": [
+       [
+        5.0,
+        21.0
+       ]
+      ],
+      "friday": [
+       [
+        5.0,
+        21.0
+       ]
+      ],
+      "saturday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "sunday": [
+       [
+        7.0,
+        21.0
+       ]
+      ]
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      21.0
+     ]
+    ]
+   }
+  },
+  "Art and Design Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      17.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      22.0
+     ]
+    ]
+   }
+  },
+  "Astronomy Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        8.0,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        8.0,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        8.0,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        8.0,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        8.0,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      8.0,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      8.0,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      8.0,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      8.0,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      8.0,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Bevier Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Burrill Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Business Instructional Facility": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-08-17",
+     "end": "2026-08-23",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        20.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        20.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        20.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        20.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "saturday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "sunday": [
+       [
+        10.0,
+        20.0
+       ]
+      ]
+     }
+    },
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      20.0
+     ]
+    ],
+    "saturday": [
+     [
+      6.0,
+      20.0
+     ]
+    ],
+    "sunday": [
+     [
+      10.0,
+      24
+     ]
+    ]
+   },
+   "openDates": [
+    "2026-09-07"
+   ]
+  },
+  "Campus Instructional Facility": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-08-17",
+     "end": "2026-08-23",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "saturday": [
+       [
+        9.0,
+        21.0
+       ]
+      ],
+      "sunday": [
+       [
+        12.0,
+        21.0
+       ]
+      ]
+     }
+    },
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [],
+      "tuesday": [],
+      "wednesday": [],
+      "thursday": [],
+      "friday": [],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      21.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      23.0
+     ]
+    ]
+   }
+  },
+  "Campus Recreation Center East": {
+   "source": "Campus Recreation hours",
+   "sourceUrl": "https://campusrec.illinois.edu/hours",
+   "valid": [
+    "2026-08-24",
+    "2026-12-17"
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7,
+      23
+     ]
+    ],
+    "tuesday": [
+     [
+      7,
+      23
+     ]
+    ],
+    "wednesday": [
+     [
+      7,
+      23
+     ]
+    ],
+    "thursday": [
+     [
+      7,
+      23
+     ]
+    ],
+    "friday": [
+     [
+      7,
+      21
+     ]
+    ],
+    "saturday": [
+     [
+      11,
+      18
+     ]
+    ],
+    "sunday": [
+     [
+      11,
+      18
+     ]
+    ]
+   },
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Ceramics Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Chemistry Annex": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      11.0,
+      21.0
+     ]
+    ],
+    "sunday": [
+     [
+      11.0,
+      21.0
+     ]
+    ]
+   }
+  },
+  "Civil and Environmental Engineering Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Coordinated Science Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Davenport Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "David Kinley Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      9.5,
+      24
+     ]
+    ]
+   }
+  },
+  "Digital Computer Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        6.75,
+        22.0
+       ]
+      ],
+      "tuesday": [
+       [
+        6.75,
+        22.0
+       ]
+      ],
+      "wednesday": [
+       [
+        6.75,
+        22.0
+       ]
+      ],
+      "thursday": [
+       [
+        6.75,
+        22.0
+       ]
+      ],
+      "friday": [
+       [
+        6.75,
+        22.0
+       ]
+      ],
+      "saturday": [
+       [
+        11.75,
+        17.5
+       ]
+      ],
+      "sunday": [
+       [
+        11.75,
+        17.5
+       ]
+      ]
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      6.75,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.75,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.75,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.75,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      6.75,
+      22.0
+     ]
+    ],
+    "saturday": [
+     [
+      11.0,
+      22.0
+     ]
+    ],
+    "sunday": [
+     [
+      11.0,
+      22.0
+     ]
+    ]
+   }
+  },
+  "Doris Kelley Christopher Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      8.0,
+      14.5
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Education Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Electrical and Computer Engineering Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.5,
+      17.0
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Engineering Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "English Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      24
+     ]
+    ]
+   }
+  },
+  "Everitt Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Flagg Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      18.0
+     ]
+    ]
+   }
+  },
+  "Funk Library": {
+   "source": "University Library hours",
+   "sourceUrl": "https://www.library.illinois.edu/library-hours/",
+   "dates": {
+    "2026-09-21": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "2026-09-22": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "2026-09-23": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "2026-09-24": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "2026-09-25": [
+     [
+      8.5,
+      18.0
+     ]
+    ],
+    "2026-09-26": [
+     [
+      10.0,
+      20.0
+     ]
+    ],
+    "2026-09-27": [
+     [
+      12.0,
+      26.0
+     ]
+    ]
+   },
+   "weekly": {
+    "monday": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "tuesday": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "wednesday": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "thursday": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "friday": [
+     [
+      8.5,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      10.0,
+      20.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      26.0
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weeklyNote": "usual week, taken from the published seven-day hours",
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Graduate School of Library and Information Science": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      18.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      18.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      18.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      18.5
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      18.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Grainger Engineering Library": {
+   "source": "University Library hours",
+   "sourceUrl": "https://www.library.illinois.edu/library-hours/",
+   "dates": {
+    "2026-09-21": [
+     [
+      0,
+      24
+     ]
+    ],
+    "2026-09-22": [
+     [
+      0,
+      24
+     ]
+    ],
+    "2026-09-23": [
+     [
+      0,
+      24
+     ]
+    ],
+    "2026-09-24": [
+     [
+      0,
+      24
+     ]
+    ],
+    "2026-09-25": [
+     [
+      0,
+      24
+     ]
+    ],
+    "2026-09-26": [
+     [
+      10.0,
+      24.0
+     ]
+    ],
+    "2026-09-27": [
+     [
+      10.0,
+      24.0
+     ]
+    ]
+   },
+   "weekly": {
+    "monday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      10.0,
+      24.0
+     ]
+    ],
+    "sunday": [
+     [
+      10.0,
+      24.0
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weeklyNote": "usual week, taken from the published seven-day hours",
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Gregory Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      24
+     ]
+    ]
+   }
+  },
+  "Harding Band Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [],
+      "tuesday": [],
+      "wednesday": [],
+      "thursday": [],
+      "friday": [],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      20.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      20.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      20.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      19.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Henry Administration Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Huff Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        22.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        22.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        22.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        22.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        22.0
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      5.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      5.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      10.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      6.0,
+      22.0
+     ]
+    ]
+   }
+  },
+  "ISR Dining Center": {
+   "source": "University Housing dining schedule",
+   "sourceUrl": "https://web.housing.illinois.edu/diningmenus",
+   "dates": {
+    "2026-09-20": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-21": [
+     [
+      7.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-22": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-23": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-24": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-25": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-26": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ]
+   },
+   "weekly": {
+    "sunday": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "monday": [
+     [
+      7.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weeklyNote": "usual week, taken from the published seven-day hours",
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Ikenberry Dining Hall": {
+   "source": "University Housing dining schedule",
+   "sourceUrl": "https://web.housing.illinois.edu/diningmenus",
+   "dates": {
+    "2026-09-20": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-21": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-22": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-23": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-24": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-25": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "2026-09-26": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ]
+   },
+   "weekly": {
+    "sunday": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "monday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weeklyNote": "usual week, taken from the published seven-day hours",
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Illini Union": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-26",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [],
+      "tuesday": [],
+      "wednesday": [],
+      "thursday": [],
+      "friday": [],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      23.0
+     ]
+    ]
+   },
+   "dates": {
+    "2026-11-25": [
+     [
+      7.0,
+      17.0
+     ]
+    ]
+   }
+  },
+  "Illini Union Bookstore": {
+   "source": "Google Maps listing",
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weekly": {
+    "monday": [
+     [
+      8,
+      18
+     ]
+    ],
+    "tuesday": [
+     [
+      8,
+      18
+     ]
+    ],
+    "wednesday": [
+     [
+      8,
+      18
+     ]
+    ],
+    "thursday": [
+     [
+      8,
+      18
+     ]
+    ],
+    "friday": [
+     [
+      8,
+      18
+     ]
+    ],
+    "saturday": [
+     [
+      11,
+      16
+     ]
+    ],
+    "sunday": [
+     [
+      11,
+      16
+     ]
+    ]
+   },
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Krannert Center for the Performing Arts": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      23.0
+     ]
+    ]
+   }
+  },
+  "Lincoln Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      23.0
+     ]
+    ]
+   }
+  },
+  "Literatures, Cultures & Linguistics Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      22.0
+     ]
+    ]
+   }
+  },
+  "Loomis Laboratory of Physics": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        18.0
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Louise Freer Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      8.0,
+      16.0
+     ]
+    ],
+    "sunday": [
+     [
+      8.0,
+      16.0
+     ]
+    ]
+   }
+  },
+  "Main Library": {
+   "source": "University Library hours",
+   "sourceUrl": "https://www.library.illinois.edu/library-hours/",
+   "dates": {
+    "2026-09-21": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "2026-09-22": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "2026-09-23": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "2026-09-24": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "2026-09-25": [
+     [
+      8.5,
+      18.0
+     ]
+    ],
+    "2026-09-26": [
+     [
+      10.0,
+      17.0
+     ]
+    ],
+    "2026-09-27": [
+     [
+      13.0,
+      24.0
+     ]
+    ]
+   },
+   "weekly": {
+    "monday": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "tuesday": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "wednesday": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "thursday": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "friday": [
+     [
+      8.5,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      10.0,
+      17.0
+     ]
+    ],
+    "sunday": [
+     [
+      13.0,
+      24.0
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weeklyNote": "usual week, taken from the published seven-day hours",
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Materials Science & Engineering Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      12.0
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Mechanical Engineering Lab": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Medical Sciences Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      17.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      17.5
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Mumford Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      18.0
+     ]
+    ]
+   }
+  },
+  "Music Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "saturday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "sunday": [
+       [
+        7.0,
+        21.0
+       ]
+      ]
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "sunday": [
+     [
+      6.5,
+      24
+     ]
+    ]
+   }
+  },
+  "National Soybean Research Center": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Natural History Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      22.0
+     ]
+    ]
+   }
+  },
+  "Newmark Civil Engineering Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Noyes Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      13.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      13.0,
+      20.0
+     ]
+    ]
+   }
+  },
+  "Psychology Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "sunday": []
+   }
+  },
+  "Roger Adams Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "School of Labor & Employment Relations": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [],
+      "tuesday": [],
+      "wednesday": [],
+      "thursday": [],
+      "friday": [],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      16.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      16.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      16.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      16.5
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      16.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Sidney Lu Mechanical Engineering Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Siebel Center for Computer Science": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      21.5
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      21.5
+     ]
+    ]
+   }
+  },
+  "Siebel Center for Design": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [],
+      "tuesday": [],
+      "wednesday": [],
+      "thursday": [],
+      "friday": [],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      24
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      24
+     ]
+    ]
+   }
+  },
+  "Smith Memorial Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "saturday": [
+       [
+        7.0,
+        21.0
+       ]
+      ],
+      "sunday": [
+       [
+        7.0,
+        21.0
+       ]
+      ]
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      6.5,
+      24
+     ]
+    ],
+    "sunday": [
+     [
+      6.5,
+      24
+     ]
+    ]
+   }
+  },
+  "Speech and Hearing Science Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      5.5,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      5.5,
+      17.5
+     ]
+    ],
+    "wednesday": [
+     [
+      5.5,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      5.5,
+      17.5
+     ]
+    ],
+    "friday": [
+     [
+      5.5,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Spurlock Museum": {
+   "source": "Spurlock Museum hours",
+   "sourceUrl": "https://www.spurlock.illinois.edu/visit/index.html",
+   "weekly": {
+    "monday": [],
+    "tuesday": [
+     [
+      12,
+      17
+     ]
+    ],
+    "wednesday": [
+     [
+      9,
+      17
+     ]
+    ],
+    "thursday": [
+     [
+      9,
+      17
+     ]
+    ],
+    "friday": [
+     [
+      9,
+      17
+     ]
+    ],
+    "saturday": [
+     [
+      10,
+      16
+     ]
+    ],
+    "sunday": [
+     [
+      12,
+      16
+     ]
+    ]
+   },
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "followsCampusClosures": true,
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ]
+   ]
+  },
+  "Steven S. Wymer Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      22.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      20.0
+     ]
+    ],
+    "saturday": [
+     [
+      9.0,
+      20.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      20.0
+     ]
+    ]
+   }
+  },
+  "Stock Pavilion": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      6.0,
+      19.0
+     ]
+    ],
+    "tuesday": [
+     [
+      6.0,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      6.0,
+      19.0
+     ]
+    ],
+    "thursday": [
+     [
+      6.0,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      6.0,
+      19.0
+     ]
+    ],
+    "saturday": [
+     [
+      6.0,
+      18.0
+     ]
+    ],
+    "sunday": [
+     [
+      6.0,
+      18.0
+     ]
+    ]
+   }
+  },
+  "Student Dining and Residential Programs (SDRP)": {
+   "source": "hours confirmed by the site owner",
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "tuesday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "wednesday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "thursday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "friday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "saturday": [
+     [
+      7,
+      24
+     ]
+    ],
+    "sunday": [
+     [
+      7,
+      24
+     ]
+    ]
+   },
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
+  },
+  "Talbot Laboratory": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Temple Hoyne Buell Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      19.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      19.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      17.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Transportation Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "sunday": [
+     [
+      7.0,
+      21.0
+     ]
+    ]
+   }
+  },
+  "Turner Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      17.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "University of Illinois College of Law": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.5,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.5,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.5,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.5,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.5,
+      18.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Veterinary Medicine Basic Sciences Building": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7.0,
+        19.0
+       ]
+      ],
+      "tuesday": [
+       [
+        7.0,
+        19.0
+       ]
+      ],
+      "wednesday": [
+       [
+        7.0,
+        19.0
+       ]
+      ],
+      "thursday": [
+       [
+        7.0,
+        19.0
+       ]
+      ],
+      "friday": [
+       [
+        7.0,
+        19.0
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "cardAccess": true,
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      19.0
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Wohlers Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      23.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "saturday": [
+     [
+      7.0,
+      21.0
+     ]
+    ],
+    "sunday": [
+     [
+      12.0,
+      23.0
+     ]
+    ]
+   }
+  }
+ }
+}
