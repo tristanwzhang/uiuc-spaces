@@ -23,14 +23,18 @@ jobs:
       - name: Rebuild hours
         run: python3 scripts/build_hours.py
 
-      # Only if a SERPAPI_KEY secret exists: refresh Google listing hours too.
+      # Refresh Google listing hours too, if a SERPAPI_KEY secret has been added.
+      # (Checked in the shell: GitHub doesn't allow secrets in an `if:`.)
       - name: Refresh Google hours
-        if: ${{ secrets.SERPAPI_KEY != '' }}
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: |
-          python3 scripts/fetch_google_hours.py
-          python3 scripts/build_hours.py
+          if [ -n "$SERPAPI_KEY" ]; then
+            python3 scripts/fetch_google_hours.py
+            python3 scripts/build_hours.py
+          else
+            echo "No SERPAPI_KEY secret set; skipping Google hours."
+          fi
 
       - name: Commit if anything changed
         run: |
