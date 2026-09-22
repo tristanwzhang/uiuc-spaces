@@ -922,7 +922,10 @@ const controller = scene.screenSpaceCameraController;
 controller.minimumZoomDistance = 60;
 controller.maximumZoomDistance = 6000;
 
-const MIN_PITCH = Cesium.Math.toRadians(-90);
+// Just short of straight down: at exactly -90° the heading has nothing left to
+// swing around, so a small drag (a thumb on a phone especially) sends the view
+// spinning. Half a degree off is indistinguishable and stays stable.
+const MIN_PITCH = Cesium.Math.toRadians(-89.5);
 const MAX_PITCH = Cesium.Math.toRadians(-15);
 
 scene.preRender.addEventListener(() => {
@@ -965,6 +968,39 @@ document.addEventListener('keydown', (e) => {
     offset: HOME_VIEW,
     duration: 1.2,
   });
+});
+
+// ─── Compass ──────────────────────────────────────────────────────────────────
+// Straightening the view out by hand is fiddly, so this does it in one step:
+// whatever is in the middle of the screen stays there, seen from above with
+// north at the top. The needle shows which way north is in the meantime.
+const compass = document.getElementById('compass');
+const compassNeedle = compass.querySelector('svg');
+
+compass.addEventListener('click', () => {
+  const cam = viewer.camera;
+  const middle = new Cesium.Cartesian2(scene.canvas.clientWidth / 2, scene.canvas.clientHeight / 2);
+  const ray = cam.getPickRay(middle);
+  const target = (ray && scene.globe.pick(ray, scene)) || CAMPUS_CENTER;
+  const range = Cesium.Math.clamp(
+    Cesium.Cartesian3.distance(cam.positionWC, target),
+    controller.minimumZoomDistance,
+    controller.maximumZoomDistance,
+  );
+  cam.flyToBoundingSphere(new Cesium.BoundingSphere(target, 1), {
+    offset: new Cesium.HeadingPitchRange(0, MIN_PITCH, range),
+    duration: 0.8,
+  });
+});
+
+let needleDegrees = null;
+scene.postRender.addEventListener(() => {
+  // Cesium reports headings anywhere in 0–360 (and 360 as often as 0), so
+  // normalise before comparing or the needle re-renders for no reason.
+  const degrees = Math.round(Cesium.Math.toDegrees(viewer.camera.heading)) % 360;
+  if (degrees === needleDegrees) return;
+  needleDegrees = degrees;
+  compassNeedle.style.transform = `rotate(${-degrees}deg)`;
 });
 
 // ─── Buildings ────────────────────────────────────────────────────────────────
