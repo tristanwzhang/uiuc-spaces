@@ -159,6 +159,31 @@ const BUILDINGS = {
     },
   },
 
+  // Cesium's building tileset is missing Morrill Hall entirely — its neighbours
+  // and the corridor to Burrill Hall are there, then a hole — so we draw it.
+  // The outline is the real footprint from OpenStreetMap (way 137759342), the
+  // same source as the rest of the buildings. Neither OSM nor Wikidata records
+  // a height, so the box is sized off the ground and its attached neighbour:
+  // terrain here is ~187.5–188.8 m and Burrill Hall's roof ~206 m, so this sits
+  // a little lower, as a four-storey building next to a taller one. No `type`,
+  // so it shows as "no data" rather than inventing a busyness pattern.
+  "Morrill Hall": {
+    shape: {
+      baseM: 187,
+      topM: 203,
+      outline: [
+      [-88.2245567, 40.109095], [-88.2245539, 40.1089519], [-88.2245527, 40.1088938],
+      [-88.2241221, 40.1089004], [-88.2241179, 40.1086524], [-88.2246221, 40.1086475],
+      [-88.2246221, 40.1086296], [-88.2246219, 40.1085198], [-88.2246218, 40.1084202],
+      [-88.2246573, 40.1084201], [-88.2246594, 40.1085193], [-88.2246617, 40.108629],
+      [-88.2246621, 40.1086484], [-88.2249353, 40.108645], [-88.2249369, 40.1087223],
+      [-88.2250002, 40.1087215], [-88.2250012, 40.1087632], [-88.2249383, 40.108764],
+      [-88.22494, 40.1088452], [-88.2246752, 40.1088513], [-88.2246743, 40.1088901],
+      [-88.2246502, 40.1088908], [-88.2246501, 40.1089505], [-88.2246558, 40.1090943],
+      ],
+    },
+  },
+
   // A building can also be split into spaces without drawing anything, e.g.
   //   "Illini Union": { spaces: { "Food court": { type: "dining" }, ... } },
   // Each space gets its own estimate, hours and check-ins, listed in the tooltip.
