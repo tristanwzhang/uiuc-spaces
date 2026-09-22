@@ -17,15 +17,31 @@ const ANALYTICS = {
 const analyticsQueue = [];
 let analyticsReady = false;
 
+// Visit once with ?nostats=1 (e.g. bookmark it) to exclude this browser from
+// analytics from then on, even on the plain URL — handy so your own testing
+// doesn't skew the data. ?nostats=0 turns tracking back on.
+const NOSTATS_KEY = 'uiucSpacesNoStats';
+(() => {
+  const params = new URLSearchParams(location.search);
+  if (!params.has('nostats')) return;
+  try {
+    if (params.get('nostats') === '0') localStorage.removeItem(NOSTATS_KEY);
+    else localStorage.setItem(NOSTATS_KEY, '1');
+  } catch (e) { /* private browsing, storage disabled, etc. */ }
+})();
+function analyticsExcluded() {
+  try { return localStorage.getItem(NOSTATS_KEY) === '1'; } catch (e) { return false; }
+}
+
 /** Record an event, e.g. track('checkin_submitted', { building, level }). */
 function track(event, properties = {}) {
-  if (!ANALYTICS.key) return;
+  if (!ANALYTICS.key || analyticsExcluded()) return;
   if (!analyticsReady) { analyticsQueue.push([event, properties]); return; }
   try { window.posthog?.capture(event, properties); } catch (e) { /* never break the map */ }
 }
 
 function startAnalytics() {
-  if (!ANALYTICS.key || analyticsReady) return;
+  if (!ANALYTICS.key || analyticsReady || analyticsExcluded()) return;
   const script = document.createElement('script');
   script.async = true;
   script.src = `${ANALYTICS.host}/static/array.js`;
