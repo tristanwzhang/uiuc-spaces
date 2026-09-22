@@ -973,9 +973,14 @@ document.addEventListener('keydown', (e) => {
 // ─── Compass ──────────────────────────────────────────────────────────────────
 // Straightening the view out by hand is fiddly, so this does it in one step:
 // whatever is in the middle of the screen stays there, seen from above with
-// north at the top. The needle shows which way north is in the meantime.
+// north at the top. Pressing it again tilts back to the usual angled view.
+// The needle shows which way north is in the meantime.
 const compass = document.getElementById('compass');
 const compassNeedle = compass.querySelector('svg');
+
+// Anything this steep counts as "looking down", so the button tilts back out
+// of a top-down view the user dragged into by hand, not just one it set.
+const LOOKING_DOWN_PITCH = Cesium.Math.toRadians(-80);
 
 compass.addEventListener('click', () => {
   const cam = viewer.camera;
@@ -987,20 +992,32 @@ compass.addEventListener('click', () => {
     controller.minimumZoomDistance,
     controller.maximumZoomDistance,
   );
+  const pitch = cam.pitch <= LOOKING_DOWN_PITCH ? HOME_VIEW.pitch : MIN_PITCH;
   cam.flyToBoundingSphere(new Cesium.BoundingSphere(target, 1), {
-    offset: new Cesium.HeadingPitchRange(0, MIN_PITCH, range),
+    offset: new Cesium.HeadingPitchRange(0, pitch, range),
     duration: 0.8,
   });
 });
 
 let needleDegrees = null;
+let needleDown = null;
 scene.postRender.addEventListener(() => {
   // Cesium reports headings anywhere in 0–360 (and 360 as often as 0), so
   // normalise before comparing or the needle re-renders for no reason.
   const degrees = Math.round(Cesium.Math.toDegrees(viewer.camera.heading)) % 360;
-  if (degrees === needleDegrees) return;
-  needleDegrees = degrees;
-  compassNeedle.style.transform = `rotate(${-degrees}deg)`;
+  if (degrees !== needleDegrees) {
+    needleDegrees = degrees;
+    compassNeedle.style.transform = `rotate(${-degrees}deg)`;
+  }
+
+  const down = viewer.camera.pitch <= LOOKING_DOWN_PITCH;
+  if (down !== needleDown) {
+    needleDown = down;
+    compass.classList.toggle('looking-down', down);
+    const label = down ? 'Back to the angled view' : 'Look straight down, north at the top';
+    compass.title = label;
+    compass.setAttribute('aria-label', label);
+  }
 });
 
 // ─── Buildings ────────────────────────────────────────────────────────────────

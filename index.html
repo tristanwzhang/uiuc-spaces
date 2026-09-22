@@ -239,6 +239,12 @@
 
   #compass:hover { background: rgba(22,28,38,0.9); }
 
+  /* Already looking straight down, so a press tilts back out. */
+  #compass.looking-down {
+    background: rgba(230,235,242,0.15);
+    border-color: rgba(255,255,255,0.2);
+  }
+
   #compass svg { width: 19px; height: 19px; display: block; }
 
   /* ── Legend ── */
@@ -616,6 +622,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=52"></script>
+<script defer src="app.js?v=53"></script>
 </body>
 </html>
