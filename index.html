@@ -14,6 +14,19 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIUC Spaces">
 <meta name="twitter:description" content="A live 3D map of how busy UIUC campus buildings are right now.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "UIUC Spaces",
+  "url": "https://tristanwzhang.github.io/uiuc-spaces/",
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Any modern web browser",
+  "isAccessibleForFree": true,
+  "description": "A live 3D map of how busy study spaces are at the University of Illinois Urbana-Champaign, built from class schedules, official building hours and student check-ins.",
+  "about": { "@type": "CollegeOrUniversity", "name": "University of Illinois Urbana-Champaign" }
+}
+</script>
 <!-- Open connections early to the servers the map needs -->
 <link rel="preconnect" href="https://cesium.com" crossorigin>
 <link rel="preconnect" href="https://api.cesium.com" crossorigin>
@@ -72,6 +85,19 @@
   .cesium-credit-expand-link { color: #8b93a6 !important; }
 
   .cesium-credit-logoContainer img { height: 14px; opacity: 0.7; }
+
+  /* ── No-JavaScript fallback (never shown when the map can draw) ── */
+  #no-js {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    color: #c9d1de;
+    line-height: 1.6;
+  }
+
+  #no-js h2 { font-size: 20px; color: #f0f4f8; margin-bottom: 12px; }
+  #no-js p { margin-bottom: 14px; font-size: 14px; }
+  #no-js ul { columns: 2; font-size: 13px; padding-left: 18px; color: #8a93a8; }
 
   /* ── Loading indicator ── */
   #loading {
@@ -543,6 +569,99 @@
 </style>
 </head>
 <body>
+
+<noscript>
+  <div id="no-js">
+    <h2>UIUC Spaces</h2>
+    <p>
+      A live 3D map of how busy study spaces are around the University of Illinois
+      Urbana-Champaign campus — libraries, dining halls, the Illini Union, gyms and
+      academic buildings — so you can see how busy a spot is before walking over.
+      Busyness comes from class schedules, official building hours, and check-ins
+      from other students.
+    </p>
+    <p>The map needs JavaScript to draw. It covers these 76 buildings:</p>
+    <ul>
+      <li>Activities and Recreation Center</li>
+      <li>Agricultural Engineering Sciences</li>
+      <li>Altgeld Hall</li>
+      <li>Animal Sciences Laboratory</li>
+      <li>Architecture Building</li>
+      <li>Armory</li>
+      <li>Art and Design Building</li>
+      <li>Astronomy Building</li>
+      <li>Beckman Institute</li>
+      <li>Bevier Hall</li>
+      <li>Burrill Hall</li>
+      <li>Business Instructional Facility</li>
+      <li>Campus Instructional Facility</li>
+      <li>Campus Recreation Center East</li>
+      <li>Ceramics Building</li>
+      <li>Chemistry Annex</li>
+      <li>Civil and Environmental Engineering Building</li>
+      <li>Coordinated Science Laboratory</li>
+      <li>Davenport Hall</li>
+      <li>David Kinley Hall</li>
+      <li>Digital Computer Laboratory</li>
+      <li>Doris Kelley Christopher Hall</li>
+      <li>Education Building</li>
+      <li>Electrical and Computer Engineering Building</li>
+      <li>Engineering Hall</li>
+      <li>English Building</li>
+      <li>Everitt Laboratory</li>
+      <li>Flagg Hall</li>
+      <li>Foellinger Auditorium</li>
+      <li>Funk Library</li>
+      <li>Graduate School of Library and Information Science</li>
+      <li>Grainger Engineering Library</li>
+      <li>Gregory Hall</li>
+      <li>Harding Band Building</li>
+      <li>Henry Administration Building</li>
+      <li>Huff Hall</li>
+      <li>ISR Dining Center</li>
+      <li>Ice Arena</li>
+      <li>Ikenberry Dining Hall</li>
+      <li>Illini Union</li>
+      <li>Illini Union Bookstore</li>
+      <li>Krannert Center for the Performing Arts</li>
+      <li>Lincoln Hall</li>
+      <li>Literatures, Cultures &amp; Linguistics Building</li>
+      <li>Loomis Laboratory of Physics</li>
+      <li>Louise Freer Hall</li>
+      <li>Main Library</li>
+      <li>Materials Science &amp; Engineering Building</li>
+      <li>Mechanical Engineering Lab</li>
+      <li>Medical Sciences Building</li>
+      <li>Morrill Hall</li>
+      <li>Mumford Hall</li>
+      <li>Music Building</li>
+      <li>National Soybean Research Center</li>
+      <li>Natural History Building</li>
+      <li>Newmark Civil Engineering Laboratory</li>
+      <li>Noyes Laboratory</li>
+      <li>Psychology Building</li>
+      <li>Roger Adams Laboratory</li>
+      <li>School of Labor &amp; Employment Relations</li>
+      <li>Sidney Lu Mechanical Engineering Building</li>
+      <li>Siebel Center for Computer Science</li>
+      <li>Siebel Center for Design</li>
+      <li>Smith Memorial Hall</li>
+      <li>Speech and Hearing Science Building</li>
+      <li>Spurlock Museum</li>
+      <li>Steven S. Wymer Hall</li>
+      <li>Stock Pavilion</li>
+      <li>Student Dining and Residential Programs (SDRP)</li>
+      <li>Talbot Laboratory</li>
+      <li>Temple Hoyne Buell Hall</li>
+      <li>Transportation Building</li>
+      <li>Turner Hall</li>
+      <li>University of Illinois College of Law</li>
+      <li>Veterinary Medicine Basic Sciences Building</li>
+      <li>Wohlers Hall</li>
+    </ul>
+    <p>A student project · not affiliated with the University of Illinois.</p>
+  </div>
+</noscript>
 
 <div id="cesiumContainer"></div>
 <div id="loading"><span class="loading-dot"></span>Loading campus…</div>
