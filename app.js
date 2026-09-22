@@ -233,6 +233,8 @@ const CHECKIN_LEVELS = { quiet: 0.2, okay: 0.55, packed: 0.9 };
 const CHECKIN_FRESH_MIN = 30;   // full weight up to here
 const CHECKIN_MAX_MIN   = 120;  // ignored after this
 const CHECKIN_TRUST_HALF = 2;   // fresh reports needed before they outweigh the estimate
+const CHECKIN_SURPRISE_SPAN = 0.35;     // deviation from the usual value that maxes out the discount
+const CHECKIN_SURPRISE_STRENGTH = 2.5;  // how hard a lone report against the usual pattern gets discounted
 
 // ─── Academic calendar ────────────────────────────────────────────────────────
 // From https://registrar.illinois.edu/fall-2026-academic-calendar/
@@ -474,9 +476,13 @@ function hoursStatus(id, date, time) {
  *   value      — age-weighted average of the reports (0–1)
  *   trust      — how much the reports should override the estimate (0–1).
  *                Grows with the number of fresh reports, shrinks when they
- *                disagree, and fades as they age.
+ *                disagree, fades as they age, and shrinks when they contradict
+ *                the usual pattern for this building/time unless enough
+ *                people corroborate the surprise.
+ * `base` is the estimate's value (0–1), or null if there is no estimate to
+ * compare against.
  */
-function freshCheckin(name, now = Date.now()) {
+function freshCheckin(name, base, now = Date.now()) {
   const recent = data.checkins
     .filter(c => c.building === name && (now - c.at) / 60000 < CHECKIN_MAX_MIN)
     .sort((a, b) => b.at - a.at);
@@ -497,7 +503,12 @@ function freshCheckin(name, now = Date.now()) {
   const value = total / weightSum;
 
   // Few reports → low trust: 1 fresh report ≈ 33%, 2 ≈ 50%, 4 ≈ 67%, 8 ≈ 80%.
-  const countTrust = weightSum / (weightSum + CHECKIN_TRUST_HALF);
+  // A report (or a few) that goes against the usual pattern for this spot
+  // needs more corroboration before it earns the same trust — treat it as
+  // if fewer reports had come in, in proportion to how big the surprise is.
+  const surprise = base == null ? 0 : Math.min(Math.abs(value - base) / CHECKIN_SURPRISE_SPAN, 1);
+  const effectiveWeight = weightSum / (1 + surprise * CHECKIN_SURPRISE_STRENGTH);
+  const countTrust = effectiveWeight / (effectiveWeight + CHECKIN_TRUST_HALF);
 
   // Reports that disagree (some "quiet", some "packed") count for less.
   const variance = weighted.reduce((sum, [level, w]) => sum + w * (level - value) ** 2, 0) / weightSum;
@@ -553,12 +564,13 @@ function profileBusyness(name, day, hour) {
  */
 function occupancyFor(name) {
   const estimate = estimateFor(name);
-  const checkin = freshCheckin(name);
+  // With no estimate (or a closed building that people say is open) the
+  // reports are all we have, so there's nothing to weigh them against.
+  const base = estimate && !['closed', 'unknown'].includes(estimate.source) ? estimate.value : null;
+  const checkin = freshCheckin(name, base);
   if (!checkin) return estimate;
 
-  // Blend reports with the estimate. With no estimate (or a closed building
-  // that people say is open) the reports are all we have.
-  const base = estimate && !['closed', 'unknown'].includes(estimate.source) ? estimate.value : null;
+  // Blend reports with the estimate.
   const trust = base == null ? 1 : checkin.trust;
   const value = base == null ? checkin.value : base * (1 - trust) + checkin.value * trust;
 
@@ -1359,7 +1371,9 @@ function pickUnderMouse() {
   const occ = name ? buildingOccupancy(name) : null;
   if (name && occ) {
     showTooltip(position.x, position.y, name, occ);
-    scene.canvas.style.cursor = 'pointer';
+    // Closed buildings still show their tooltip on hover, but there's
+    // nothing to click through to — no pointer cursor, no panel.
+    scene.canvas.style.cursor = occ.source === 'closed' ? 'default' : 'pointer';
     noteHover(name, occ);
   } else {
     hideTooltip();
@@ -1383,6 +1397,8 @@ const panelNow   = document.getElementById('panel-now');
 const panelNote  = document.getElementById('panel-note');
 const panelThanks = document.getElementById('panel-thanks');
 const panelSpaces = document.getElementById('panel-spaces');
+const panelQ      = document.getElementById('panel-q');
+const checkinRow  = document.getElementById('checkin-row');
 let panelBuilding = null;
 let panelSpace = null;
 
@@ -1414,12 +1430,17 @@ function openPanel(name, keepThanks = false) {
   }
   renderSpacePicker(name);
   const occ = occupancyFor(panelTarget());
+  const closed = occ?.source === 'closed';
   panelName.textContent = name;
   panelNow.textContent = !occ ? 'No data yet'
-    : occ.source === 'closed' ? (occ.cardAccess ? 'Public doors locked · i-card may work' : 'Closed right now')
+    : closed ? (occ.cardAccess ? 'Public doors locked · i-card may work' : 'Closed right now')
     : occ.source === 'unknown' ? 'Hours not published — no estimate right now'
     : `${SOURCE_LABELS[occ.source]} · ${Math.round(occ.value * 100)}% full`;
-  panelNote.textContent = sharedCheckins()
+  panelQ.hidden = closed;
+  checkinRow.hidden = closed;
+  panelNote.textContent = closed
+    ? "Check-ins are off while it's closed."
+    : sharedCheckins()
     ? 'Shared with everyone using the map.'
     : 'Saved on this device only — no server yet.';
   if (!keepThanks) panelThanks.textContent = '';
@@ -1434,6 +1455,7 @@ function closePanel() {
 
 async function submitCheckin(level) {
   if (!panelBuilding) return;
+  if (occupancyFor(panelTarget())?.source === 'closed') return;
   const report = { building: panelTarget(), level, at: Date.now(), mine: true };
   data.checkins.push(report);
   saveLocalCheckins();
@@ -1464,9 +1486,11 @@ document.getElementById('panel-close').addEventListener('click', closePanel);
 
 handler.setInputAction((click) => {
   const name = buildingNameAt(click.position);
-  if (name) {
+  const occ = name ? buildingOccupancy(name) : null;
+  // Closed buildings have nothing to check in on — skip the panel entirely
+  // so people aren't clicking through a popup that can't do anything.
+  if (name && occ?.source !== 'closed') {
     openPanel(name);
-    const occ = buildingOccupancy(name);
     track('building_opened', { building: name, device: deviceKind(), source: SOURCE_LABELS[occ?.source] || 'none' });
   } else {
     closePanel();
