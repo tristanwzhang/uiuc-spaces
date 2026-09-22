@@ -104,10 +104,10 @@ const BUILDINGS = {
     label: "BIF",
     pattern: {
       // [from, to, level] in hours; 9.5 = 9:30am
-      monday:    [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 24, "okay"]],
-      tuesday:   [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 24, "okay"]],
-      wednesday: [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 24, "okay"]],
-      thursday:  [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 24, "okay"]],
+      monday:    [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 17.5, "okay"], [17.5, 24, "quiet"]],
+      tuesday:   [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 17.5, "okay"], [17.5, 24, "quiet"]],
+      wednesday: [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 17.5, "okay"], [17.5, 24, "quiet"]],
+      thursday:  [[0, 9.5, "quiet"], [9.5, 10.5, "okay"], [10.5, 15.5, "busy"], [15.5, 17.5, "okay"], [17.5, 24, "quiet"]],
       friday:    [[0, 24, "quiet"]],
       saturday:  [[0, 24, "quiet"]],
       sunday:    [[0, 24, "quiet"]],
