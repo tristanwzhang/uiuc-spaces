@@ -564,9 +564,12 @@ function profileBusyness(name, day, hour) {
  */
 function occupancyFor(name) {
   const estimate = estimateFor(name);
-  // With no estimate (or a closed building that people say is open) the
-  // reports are all we have, so there's nothing to weigh them against.
-  const base = estimate && !['closed', 'unknown'].includes(estimate.source) ? estimate.value : null;
+  // With no estimate at all, reports are all we have, so there's nothing to
+  // weigh them against. A closed building still gives us a signal though —
+  // expected occupancy ~0 — so a report claiming otherwise gets the same
+  // outlier scrutiny as any other surprising report, instead of automatically
+  // overriding "closed" outright.
+  const base = !estimate || estimate.source === 'unknown' ? null : estimate.source === 'closed' ? 0 : estimate.value;
   const checkin = freshCheckin(name, base);
   if (!checkin) return estimate;
 
