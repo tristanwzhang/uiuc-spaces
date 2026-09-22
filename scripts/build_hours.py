@@ -101,6 +101,7 @@ SHEET_NAMES = {
     "Material Science and Engineering Building": "Materials Science & Engineering Building",
     "Mechanical Engineering Laboratory": "Mechanical Engineering Lab",
     "Medical Science Building": "Medical Sciences Building",
+    "Morrill Hall": "Morrill Hall",
     "Mumford Hall": "Mumford Hall",
     "Music Building": "Music Building",
     "National Soybean Research Center": "National Soybean Research Center",

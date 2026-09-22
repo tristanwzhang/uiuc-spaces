@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-21T22:26:39+00:00",
+ "built_at": "2026-09-22T16:41:47+00:00",
  "campusClosedDates": [
   "2026-09-07",
   "2026-11-26",
@@ -2462,12 +2462,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-21": [
-     [
-      8.5,
-      26.0
-     ]
-    ],
     "2026-09-22": [
      [
       8.5,
@@ -2503,15 +2497,15 @@
       12.0,
       26.0
      ]
-    ]
-   },
-   "weekly": {
-    "monday": [
+    ],
+    "2026-09-28": [
      [
       8.5,
       26.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "tuesday": [
      [
       8.5,
@@ -2545,6 +2539,12 @@
     "sunday": [
      [
       12.0,
+      26.0
+     ]
+    ],
+    "monday": [
+     [
+      8.5,
       26.0
      ]
     ]
@@ -2660,12 +2660,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-21": [
-     [
-      0,
-      24
-     ]
-    ],
     "2026-09-22": [
      [
       0,
@@ -2701,15 +2695,15 @@
       10.0,
       24.0
      ]
-    ]
-   },
-   "weekly": {
-    "monday": [
+    ],
+    "2026-09-28": [
      [
       0,
       24
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "tuesday": [
      [
       0,
@@ -2744,6 +2738,12 @@
      [
       10.0,
       24.0
+     ]
+    ],
+    "monday": [
+     [
+      0,
+      24
      ]
     ]
    },
@@ -3104,20 +3104,6 @@
    "source": "University Housing dining schedule",
    "sourceUrl": "https://web.housing.illinois.edu/diningmenus",
    "dates": {
-    "2026-09-21": [
-     [
-      7.0,
-      10.0
-     ],
-     [
-      10.5,
-      14.0
-     ],
-     [
-      16.5,
-      20.0
-     ]
-    ],
     "2026-09-22": [
      [
       7.0,
@@ -3193,10 +3179,8 @@
       16.5,
       20.0
      ]
-    ]
-   },
-   "weekly": {
-    "monday": [
+    ],
+    "2026-09-28": [
      [
       7.0,
       10.0
@@ -3209,7 +3193,9 @@
       16.5,
       20.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "tuesday": [
      [
       7.0,
@@ -3279,6 +3265,20 @@
     "sunday": [
      [
       9.0,
+      14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "monday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
       14.0
      ],
      [
@@ -3315,20 +3315,6 @@
    "source": "University Housing dining schedule",
    "sourceUrl": "https://web.housing.illinois.edu/diningmenus",
    "dates": {
-    "2026-09-21": [
-     [
-      7.0,
-      10.0
-     ],
-     [
-      10.5,
-      15.0
-     ],
-     [
-      16.5,
-      20.0
-     ]
-    ],
     "2026-09-22": [
      [
       7.0,
@@ -3404,10 +3390,8 @@
       16.5,
       20.0
      ]
-    ]
-   },
-   "weekly": {
-    "monday": [
+    ],
+    "2026-09-28": [
      [
       7.0,
       10.0
@@ -3420,7 +3404,9 @@
       16.5,
       20.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "tuesday": [
      [
       7.0,
@@ -3491,6 +3477,20 @@
      [
       9.0,
       14.0
+     ],
+     [
+      16.5,
+      20.0
+     ]
+    ],
+    "monday": [
+     [
+      7.0,
+      10.0
+     ],
+     [
+      10.5,
+      15.0
      ],
      [
       16.5,
@@ -4129,12 +4129,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-21": [
-     [
-      8.5,
-      24.0
-     ]
-    ],
     "2026-09-22": [
      [
       8.5,
@@ -4170,15 +4164,15 @@
       13.0,
       24.0
      ]
-    ]
-   },
-   "weekly": {
-    "monday": [
+    ],
+    "2026-09-28": [
      [
       8.5,
       24.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "tuesday": [
      [
       8.5,
@@ -4212,6 +4206,12 @@
     "sunday": [
      [
       13.0,
+      24.0
+     ]
+    ],
+    "monday": [
+     [
+      8.5,
       24.0
      ]
     ]
@@ -4490,6 +4490,89 @@
      [
       7.5,
       17.5
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   }
+  },
+  "Morrill Hall": {
+   "source": "Campus building hours spreadsheet",
+   "sourceUrl": "https://financeadmin.illinois.edu/wp-content/uploads/2026/09/Fall-2026-Schedule-Updated-9-10-26.xlsx",
+   "valid": [
+    "2026-08-17",
+    "2026-12-10"
+   ],
+   "followsCampusClosures": true,
+   "periods": [
+    {
+     "start": "2026-11-21",
+     "end": "2026-11-29",
+     "weekly": {
+      "monday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "tuesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "wednesday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "thursday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "friday": [
+       [
+        7,
+        17.5
+       ]
+      ],
+      "saturday": [],
+      "sunday": []
+     }
+    }
+   ],
+   "weekly": {
+    "monday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "tuesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "wednesday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "thursday": [
+     [
+      7.0,
+      18.0
+     ]
+    ],
+    "friday": [
+     [
+      7.0,
+      18.0
      ]
     ],
     "saturday": [],
