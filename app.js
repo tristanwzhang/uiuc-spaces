@@ -54,7 +54,12 @@ function startAnalytics() {
       // visitors and made return visits impossible to see at all.
       persistence: 'localStorage',
       autocapture: false,            // only the events below
-      disable_session_recording: true,
+      // Recording phones only, and only for now: phone visitors tap ~1.7
+      // buildings per visit but check in on far fewer of them than people on
+      // a computer do, and event counts can't show whether that's fumbled
+      // taps or genuine browsing. Watching a few sessions can. Turn this back
+      // off (or set it to true) once that question is answered.
+      disable_session_recording: deviceKind() !== 'phone',
       disable_surveys: true,
       respect_dnt: true,
       capture_pageview: true,
