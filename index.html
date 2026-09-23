@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>UIUC Spaces</title>
 <meta name="google-site-verification" content="2yHqqMcUZ2wneCB7bMSbk0u5ygMaqu72CmEDhTtyPKQ" />
 <meta name="description" content="A live 3D map of how busy UIUC campus buildings are right now — libraries, dining halls, the union, and more — built from class schedules, official hours, and student check-ins.">
@@ -54,16 +54,27 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   [hidden] { display: none !important; }
 
+  /* On iPhone the browser's own bars overlap the page: 100vh is the height
+     with them hidden, so anything pinned to an edge ends up underneath them.
+     100dvh tracks the height that's actually visible, and the insets keep the
+     controls clear of the notch and the home indicator. */
+  :root {
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
   body {
     font-family: 'DM Sans', system-ui, sans-serif;
     background: #0a0e14;
     overflow: hidden;
     height: 100vh;
+    height: 100dvh;
   }
 
   #cesiumContainer {
     width: 100vw;
     height: 100vh;
+    height: 100dvh;
   }
 
   /* Hide Cesium default UI clutter (credits stay visible — required) */
@@ -79,7 +90,7 @@
   .cesium-viewer-bottom {
     left: 50% !important;
     right: auto !important;
-    bottom: 10px !important;
+    bottom: calc(10px + var(--safe-bottom)) !important;
     transform: translateX(-50%);
     padding: 0 !important;
   }
@@ -200,7 +211,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 20px 28px 60px;
+    padding: calc(20px + var(--safe-top)) 28px 60px;
     background: linear-gradient(to bottom, rgba(10,14,20,0.92) 40%, transparent);
     display: flex;
     align-items: flex-start;
@@ -233,7 +244,7 @@
   /* ── Stats chips ── */
   #stats {
     position: absolute;
-    top: 86px;
+    top: calc(86px + var(--safe-top));
     left: 28px;
     z-index: 100;
     display: flex;
@@ -263,7 +274,7 @@
   /* ── Compass ── */
   #compass {
     position: absolute;
-    top: 20px;
+    top: calc(20px + var(--safe-top));
     right: 28px;
     z-index: 101;
     width: 42px; height: 42px;
@@ -298,7 +309,7 @@
   /* ── Legend ── */
   #legend {
     position: absolute;
-    bottom: 36px;
+    bottom: calc(36px + var(--safe-bottom));
     left: 28px;
     z-index: 100;
     pointer-events: none;
@@ -423,7 +434,7 @@
   #panel {
     position: absolute;
     right: 28px;
-    bottom: 96px;
+    bottom: calc(96px + var(--safe-bottom));
     z-index: 150;
     width: 260px;
     background: rgba(10,14,20,0.95);
@@ -600,7 +611,7 @@
   /* ── Privacy note ── */
   #privacy-note {
     position: absolute;
-    bottom: 26px;
+    bottom: calc(26px + var(--safe-bottom));
     left: 50%;
     transform: translateX(-50%);
     z-index: 100;
@@ -617,7 +628,7 @@
   /* ── Controls hint ── */
   #hint {
     position: absolute;
-    bottom: 36px;
+    bottom: calc(36px + var(--safe-bottom));
     right: 28px;
     z-index: 100;
     pointer-events: none;
@@ -636,18 +647,18 @@
   }
   /* ── Small screens ── */
   @media (max-width: 640px) {
-    #header { padding: 14px 16px 50px; }
+    #header { padding: calc(14px + var(--safe-top)) 16px 50px; }
     #header h1 { font-size: 16px; }
     #header .sub { display: none; }
     #header .disclaimer { font-size: 10px; margin-top: 1px; }
-    #stats { top: 52px; left: 16px; right: 16px; flex-wrap: wrap; gap: 6px; }
-    #compass { top: 92px; right: 16px; width: 44px; height: 44px; }
+    #stats { top: calc(52px + var(--safe-top)); left: 16px; right: 16px; flex-wrap: wrap; gap: 6px; }
+    #compass { top: calc(92px + var(--safe-top)); right: 16px; width: 44px; height: 44px; }
     .chip { padding: 5px 10px; font-size: 11.5px; }
-    #legend { left: 16px; bottom: 40px; }
+    #legend { left: 16px; bottom: calc(40px + var(--safe-bottom)); }
     #hint { display: none; }
     /* Tucked into the bottom corner rather than spanning the screen, so the
        map stays visible behind it and there's less of it under your thumb. */
-    #panel { right: 12px; left: auto; width: min(270px, calc(100vw - 24px)); bottom: 32px; }
+    #panel { right: 12px; left: auto; width: min(270px, calc(100vw - 24px)); bottom: calc(32px + var(--safe-bottom)); }
     /* The panel lands on top of the legend down here. Once you've opened a
        building you're reading its numbers, not the colour scale. */
     body.panel-open #legend { opacity: 0; }
