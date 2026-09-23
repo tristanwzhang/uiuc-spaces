@@ -177,6 +177,13 @@ GOOGLE_HOURS = {
         "thursday": [[8, 18]], "friday": [[8, 18]],
         "saturday": [[11, 16]], "sunday": [[11, 16]],
     },
+    # Beckman is the fourth most-opened building on the map and had no hours at
+    # all: it isn't in the Facilities spreadsheet and publishes none itself.
+    "Beckman Institute": {
+        "monday": [[8, 17]], "tuesday": [[8, 17]], "wednesday": [[8, 17]],
+        "thursday": [[8, 17]], "friday": [[8, 17]],
+        "saturday": [], "sunday": [],
+    },
 }
 
 # Hours confirmed by the site owner (no published source). Regular semester

@@ -1,5 +1,5 @@
 {
- "built_at": "2026-09-22T16:41:47+00:00",
+ "built_at": "2026-09-23T06:17:17+00:00",
  "campusClosedDates": [
   "2026-09-07",
   "2026-11-26",
@@ -713,6 +713,65 @@
     "saturday": [],
     "sunday": []
    }
+  },
+  "Beckman Institute": {
+   "source": "Google Maps listing",
+   "valid": [
+    "2026-08-24",
+    "2026-12-09"
+   ],
+   "weekly": {
+    "monday": [
+     [
+      8,
+      17
+     ]
+    ],
+    "tuesday": [
+     [
+      8,
+      17
+     ]
+    ],
+    "wednesday": [
+     [
+      8,
+      17
+     ]
+    ],
+    "thursday": [
+     [
+      8,
+      17
+     ]
+    ],
+    "friday": [
+     [
+      8,
+      17
+     ]
+    ],
+    "saturday": [],
+    "sunday": []
+   },
+   "unknownDuring": [
+    [
+     "2026-11-21",
+     "2026-11-29"
+    ],
+    [
+     "2026-09-07",
+     "2026-09-07"
+    ],
+    [
+     "2026-11-26",
+     "2026-11-26"
+    ],
+    [
+     "2026-11-27",
+     "2026-11-27"
+    ]
+   ]
   },
   "Bevier Hall": {
    "source": "Campus building hours spreadsheet",
@@ -2462,12 +2521,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-22": [
-     [
-      8.5,
-      26.0
-     ]
-    ],
     "2026-09-23": [
      [
       8.5,
@@ -2503,15 +2556,15 @@
       8.5,
       26.0
      ]
-    ]
-   },
-   "weekly": {
-    "tuesday": [
+    ],
+    "2026-09-29": [
      [
       8.5,
       26.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "wednesday": [
      [
       8.5,
@@ -2543,6 +2596,12 @@
      ]
     ],
     "monday": [
+     [
+      8.5,
+      26.0
+     ]
+    ],
+    "tuesday": [
      [
       8.5,
       26.0
@@ -2660,12 +2719,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-22": [
-     [
-      0,
-      24
-     ]
-    ],
     "2026-09-23": [
      [
       0,
@@ -2701,15 +2754,15 @@
       0,
       24
      ]
-    ]
-   },
-   "weekly": {
-    "tuesday": [
+    ],
+    "2026-09-29": [
      [
       0,
       24
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "wednesday": [
      [
       0,
@@ -2741,6 +2794,12 @@
      ]
     ],
     "monday": [
+     [
+      0,
+      24
+     ]
+    ],
+    "tuesday": [
      [
       0,
       24
@@ -4129,12 +4188,6 @@
    "source": "University Library hours",
    "sourceUrl": "https://www.library.illinois.edu/library-hours/",
    "dates": {
-    "2026-09-22": [
-     [
-      8.5,
-      24.0
-     ]
-    ],
     "2026-09-23": [
      [
       8.5,
@@ -4170,15 +4223,15 @@
       8.5,
       24.0
      ]
-    ]
-   },
-   "weekly": {
-    "tuesday": [
+    ],
+    "2026-09-29": [
      [
       8.5,
       24.0
      ]
-    ],
+    ]
+   },
+   "weekly": {
     "wednesday": [
      [
       8.5,
@@ -4210,6 +4263,12 @@
      ]
     ],
     "monday": [
+     [
+      8.5,
+      24.0
+     ]
+    ],
+    "tuesday": [
      [
       8.5,
       24.0
