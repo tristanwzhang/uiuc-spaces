@@ -48,7 +48,11 @@ function startAnalytics() {
   script.onload = () => {
     window.posthog.init(ANALYTICS.key, {
       api_host: ANALYTICS.host,
-      persistence: 'memory',         // no cookies, so no cookie banner needed
+      // A random id kept in localStorage, not a cookie — so still no cookie
+      // banner, and it identifies nobody. With 'memory' the id was reborn on
+      // every page load, which made one student reloading look like several
+      // visitors and made return visits impossible to see at all.
+      persistence: 'localStorage',
       autocapture: false,            // only the events below
       disable_session_recording: true,
       disable_surveys: true,
