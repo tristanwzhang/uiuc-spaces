@@ -1508,7 +1508,22 @@ function renderSpacePicker(name) {
   }
 }
 
+// How long the panel stays untappable after it appears. Long enough to swallow
+// the click belonging to the tap that opened it, short enough that a deliberate
+// second tap never waits.
+const PANEL_ARM_MS = 350;
+let armTimer = null;
+
+function armPanelLater() {
+  panel.classList.remove('armed');
+  clearTimeout(armTimer);
+  armTimer = setTimeout(() => panel.classList.add('armed'), PANEL_ARM_MS);
+}
+
 function openPanel(name, keepThanks = false) {
+  // Only re-arm when the panel is actually appearing or switching building —
+  // not on the background check-in poll, which would keep going inert mid-tap.
+  const freshOpen = !panel.classList.contains('show') || name !== panelBuilding;
   if (name !== panelBuilding) {
     panelBuilding = name;
     panelSpace = spacesOf(name)[0] || null;
@@ -1532,11 +1547,16 @@ function openPanel(name, keepThanks = false) {
     panelThanks.textContent = '';
     clearWishlist();
   }
+  if (freshOpen) armPanelLater();
   panel.classList.add('show');
+  // Lets the stylesheet clear the legend out of the panel's way on a phone.
+  document.body.classList.add('panel-open');
 }
 
 function closePanel() {
-  panel.classList.remove('show');
+  panel.classList.remove('show', 'armed');
+  document.body.classList.remove('panel-open');
+  clearTimeout(armTimer);
   panelBuilding = null;
   panelSpace = null;
 }
