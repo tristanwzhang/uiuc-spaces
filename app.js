@@ -1483,6 +1483,7 @@ const panelThanks = document.getElementById('panel-thanks');
 const panelSpaces = document.getElementById('panel-spaces');
 const panelQ      = document.getElementById('panel-q');
 const checkinRow  = document.getElementById('checkin-row');
+const wishThanks  = document.getElementById('wish-thanks');
 let panelBuilding = null;
 let panelSpace = null;
 
@@ -1527,7 +1528,10 @@ function openPanel(name, keepThanks = false) {
     : sharedCheckins()
     ? 'Shared with everyone using the map.'
     : 'Saved on this device only — no server yet.';
-  if (!keepThanks) panelThanks.textContent = '';
+  if (!keepThanks) {
+    panelThanks.textContent = '';
+    clearWishlist();
+  }
   panel.classList.add('show');
 }
 
@@ -1565,6 +1569,30 @@ async function submitCheckin(level) {
 
 document.querySelectorAll('#panel .checkin-btn').forEach(button => {
   button.addEventListener('click', () => submitCheckin(button.dataset.level));
+});
+
+// ─── Which features to build next ─────────────────────────────────────────────
+// None of these exist. Tapping one records that somebody wanted it and says so
+// plainly, so nobody is left waiting for a filter that isn't there. Compare the
+// counts against `building_opened` to see what share of people asked for each.
+const WISHES = {
+  outlets:        'power outlets',
+  quiet_vs_group: 'quiet vs group space',
+  free_alert:     'an alert when a spot frees up',
+};
+
+function clearWishlist() {
+  document.querySelectorAll('#wishlist .wish-btn.picked').forEach(b => b.classList.remove('picked'));
+  wishThanks.textContent = '';
+}
+
+document.querySelectorAll('#wishlist .wish-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const feature = button.dataset.feature;
+    track('feature_interest', { feature, building: panelTarget(), device: deviceKind() });
+    button.classList.add('picked');
+    wishThanks.textContent = `Noted: ${WISHES[feature]}. Not built yet — this just tells me to.`;
+  });
 });
 document.getElementById('panel-close').addEventListener('click', closePanel);
 

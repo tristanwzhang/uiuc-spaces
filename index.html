@@ -543,6 +543,53 @@
     line-height: 1.4;
   }
 
+  /* Features that don't exist yet. Tapping one records interest and says so —
+     it never implies the feature works. The counts decide what to build next.
+     Dashed borders so they don't read as working controls. */
+  #wishlist {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .wish-q {
+    font-size: 10.5px;
+    color: #5a6478;
+    margin-bottom: 7px;
+  }
+
+  .wish-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .wish-btn {
+    flex: 1;
+    font-family: inherit;
+    font-size: 11px;
+    color: #8a93a8;
+    background: none;
+    border: 1px dashed rgba(255,255,255,0.16);
+    border-radius: 7px;
+    padding: 6px 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color 0.12s ease, border-color 0.12s ease;
+  }
+
+  .wish-btn:hover { color: #f0f4f8; border-color: rgba(255,255,255,0.3); }
+
+  .wish-btn.picked {
+    color: #4ade80;
+    border-style: solid;
+    border-color: rgba(74,222,128,0.4);
+  }
+
+  #wish-thanks {
+    font-size: 10.5px;
+    color: #4ade80;
+    margin-top: 6px;
+    min-height: 12px;
+    line-height: 1.4;
+  }
+
   /* ── Privacy note ── */
   #privacy-note {
     position: absolute;
@@ -599,6 +646,7 @@
     #panel-close { width: 44px; height: 44px; top: 2px; right: 2px; }
     #panel-name { padding-right: 46px; }
     .checkin-btn { min-height: 44px; font-size: 13px; }
+    .wish-btn { min-height: 40px; font-size: 12px; }
     .space-btn { min-height: 36px; padding: 6px 14px; font-size: 12.5px; }
     /* The status line is the reason someone tapped the building. */
     #panel-now { font-size: 13px; }
@@ -767,6 +815,15 @@
   </div>
   <div id="panel-thanks"></div>
   <div id="panel-note"></div>
+  <div id="wishlist">
+    <div class="wish-q">Not built yet — which would you use?</div>
+    <div class="wish-row">
+      <button class="wish-btn" data-feature="outlets">Outlets</button>
+      <button class="wish-btn" data-feature="quiet_vs_group">Quiet/group</button>
+      <button class="wish-btn" data-feature="free_alert">Alert me</button>
+    </div>
+    <div id="wish-thanks"></div>
+  </div>
 </div>
 
 <div id="privacy-note">Anonymous usage stats help improve this map.</div>
@@ -776,6 +833,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=57"></script>
+<script defer src="app.js?v=58"></script>
 </body>
 </html>
