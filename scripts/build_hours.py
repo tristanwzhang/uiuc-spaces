@@ -184,6 +184,15 @@ GOOGLE_HOURS = {
         "thursday": [[8, 17]], "friday": [[8, 17]],
         "saturday": [], "sunday": [],
     },
+    # The spreadsheet row for the Ice Arena just points at a link, so it had no
+    # hours either. These windows are short enough that they look like the
+    # public skate sessions rather than when the doors are open — which is the
+    # more useful thing to know about an ice rink anyway.
+    "Ice Arena": {
+        "monday": [[11, 13]], "tuesday": [[11, 13]], "wednesday": [[11, 13]],
+        "thursday": [[11, 13]], "friday": [[11, 13]],
+        "saturday": [[13.5, 16]], "sunday": [[13.5, 16]],
+    },
 }
 
 # Hours confirmed by the site owner (no published source). Regular semester
