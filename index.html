@@ -286,7 +286,14 @@
     border-color: rgba(255,255,255,0.2);
   }
 
-  #compass svg { width: 19px; height: 19px; display: block; }
+  /* The label names the view you get when you press it, as map apps do. */
+  #compass-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    color: #e6ebf2;
+  }
 
   /* ── Legend ── */
   #legend {
@@ -723,10 +730,8 @@
   </div>
 </div>
 
-<button id="compass" aria-label="Look straight down, north at the top" title="Look straight down, north at the top">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M12 2.5 L17 21 L12 17 L7 21 Z" fill="#e6ebf2"></path>
-  </svg>
+<button id="compass" aria-label="Switch to a top-down view, north at the top" title="Switch to a top-down view, north at the top">
+  <span id="compass-label" aria-hidden="true">2D</span>
 </button>
 
 <div id="legend">
@@ -771,6 +776,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=56"></script>
+<script defer src="app.js?v=57"></script>
 </body>
 </html>

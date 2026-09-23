@@ -1004,13 +1004,14 @@ document.addEventListener('keydown', (e) => {
   });
 });
 
-// ─── Compass ──────────────────────────────────────────────────────────────────
+// ─── 2D / 3D toggle ───────────────────────────────────────────────────────────
 // Straightening the view out by hand is fiddly, so this does it in one step:
 // whatever is in the middle of the screen stays there, seen from above with
 // north at the top. Pressing it again tilts back to the usual angled view.
-// The needle shows which way north is in the meantime.
+// (Top-down isn't literally 2D — the buildings are still extruded — but "2D"
+// is what people expect this button to be called.)
 const compass = document.getElementById('compass');
-const compassNeedle = compass.querySelector('svg');
+const compassLabel = document.getElementById('compass-label');
 
 // Anything this steep counts as "looking down", so the button tilts back out
 // of a top-down view the user dragged into by hand, not just one it set.
@@ -1033,25 +1034,18 @@ compass.addEventListener('click', () => {
   });
 });
 
-let needleDegrees = null;
-let needleDown = null;
+let shownDown = null;
 scene.postRender.addEventListener(() => {
-  // Cesium reports headings anywhere in 0–360 (and 360 as often as 0), so
-  // normalise before comparing or the needle re-renders for no reason.
-  const degrees = Math.round(Cesium.Math.toDegrees(viewer.camera.heading)) % 360;
-  if (degrees !== needleDegrees) {
-    needleDegrees = degrees;
-    compassNeedle.style.transform = `rotate(${-degrees}deg)`;
-  }
-
   const down = viewer.camera.pitch <= LOOKING_DOWN_PITCH;
-  if (down !== needleDown) {
-    needleDown = down;
-    compass.classList.toggle('looking-down', down);
-    const label = down ? 'Back to the angled view' : 'Look straight down, north at the top';
-    compass.title = label;
-    compass.setAttribute('aria-label', label);
-  }
+  if (down === shownDown) return;
+  shownDown = down;
+  compassLabel.textContent = down ? '3D' : '2D';
+  compass.classList.toggle('looking-down', down);
+  const label = down
+    ? 'Switch back to the angled 3D view'
+    : 'Switch to a top-down view, north at the top';
+  compass.title = label;
+  compass.setAttribute('aria-label', label);
 });
 
 // ─── Buildings ────────────────────────────────────────────────────────────────
