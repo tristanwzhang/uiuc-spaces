@@ -1567,20 +1567,23 @@ async function submitCheckin(level) {
   const report = { building: panelTarget(), level, at: Date.now(), mine: true };
   data.checkins.push(report);
   saveLocalCheckins();
-  track('checkin_submitted', { building: report.building, level, device: deviceKind() });
 
   refresh({ keepThanks: true });
   panelThanks.textContent = sharedCheckins() ? 'Thanks — sharing…' : 'Thanks — the map has been updated.';
 
   const result = await sendCheckin(report);
   if (result === 'rate-limited') {
-    // Already reported this building in the last minute — drop the duplicate.
+    // Already reported this building in the last minute — drop the duplicate,
+    // and don't count it: a repeat tap isn't a new report. (Tracking this
+    // before the server's answer used to record every tap of a rapid retry —
+    // one visitor's 54 taps in 31 seconds looked like 54 check-ins.)
     data.checkins = data.checkins.filter(r => r !== report);
     saveLocalCheckins();
     refresh({ keepThanks: true });
     panelThanks.textContent = 'You just reported this one — try again in a minute.';
     return;
   }
+  track('checkin_submitted', { building: report.building, level, device: deviceKind(), shared: result === 'ok' });
   panelThanks.textContent = result === 'ok' ? 'Thanks — everyone sees this now.'
     : sharedCheckins() ? 'Thanks — saved here (could not reach the server).'
     : 'Thanks — the map has been updated.';
