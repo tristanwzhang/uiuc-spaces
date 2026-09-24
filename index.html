@@ -608,6 +608,72 @@
     line-height: 1.4;
   }
 
+  /* ── Returning-visitor survey ── */
+  /* Bottom-centre: clear of the legend (left) and the building panel
+     (right), and hidden along with the legend while a panel is open so it
+     never fights the panel for the same corner. */
+  #survey {
+    position: absolute;
+    bottom: calc(60px + var(--safe-bottom));
+    left: 50%;
+    z-index: 130;
+    width: min(300px, calc(100vw - 32px));
+    background: rgba(10,14,20,0.95);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    padding: 14px 34px 14px 16px;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  #survey.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+
+  body.panel-open #survey { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(8px); }
+
+  #survey-close {
+    position: absolute;
+    top: 2px; right: 2px;
+    width: 30px; height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: #5a6478;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
+
+  #survey-close:hover { color: #c9d1de; }
+
+  .survey-q {
+    font-size: 12.5px;
+    color: #c9d1de;
+    line-height: 1.4;
+  }
+
+  .survey-row { display: flex; gap: 6px; margin-top: 10px; }
+
+  .survey-btn {
+    flex: 1;
+    font-family: inherit;
+    font-size: 12px;
+    color: #c9d1de;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 7px;
+    padding: 7px 0;
+    cursor: pointer;
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+
+  .survey-btn:hover { background: rgba(255,255,255,0.11); color: #f0f4f8; }
+
   /* ── Privacy note ── */
   #privacy-note {
     position: absolute;
@@ -661,12 +727,17 @@
     #panel { right: 12px; left: auto; width: min(270px, calc(100vw - 24px)); bottom: calc(32px + var(--safe-bottom)); }
     /* The panel lands on top of the legend down here. Once you've opened a
        building you're reading its numbers, not the colour scale. */
-    body.panel-open #legend { opacity: 0; }
+    body.panel-open #legend, body.survey-open #legend { opacity: 0; }
+    /* The survey is centred and nearly full-width down here, so it also
+       needs the legend's own corner clear rather than just avoiding it. */
+    #survey { bottom: calc(96px + var(--safe-bottom)); }
     .cesium-widget-credits { font-size: 9px !important; }
 
     /* Thumbs need ~44px. Measured before this: the close button was 18x21
        and the check-in buttons 32 tall, so both were being missed. */
     #panel-close { width: 44px; height: 44px; top: 2px; right: 2px; }
+    #survey-close { width: 44px; height: 44px; top: 2px; right: 2px; }
+    .survey-btn { min-height: 40px; font-size: 12.5px; }
     #panel-name { padding-right: 46px; }
     .checkin-btn { min-height: 44px; font-size: 13px; }
     .wish-btn { min-height: 40px; font-size: 12px; }
@@ -851,11 +922,20 @@
 
 <div id="privacy-note">Anonymous usage stats help improve this map.</div>
 
+<div id="survey">
+  <button id="survey-close" aria-label="Dismiss">×</button>
+  <div class="survey-q">Welcome back — did this help you find a study spot?</div>
+  <div class="survey-row">
+    <button class="survey-btn" data-answer="yes">Yes</button>
+    <button class="survey-btn" data-answer="no">Not really</button>
+  </div>
+</div>
+
 <div id="hint">
   <p>Drag · move<br>Pinch or scroll · zoom<br>Ctrl + drag · tilt &amp; rotate<br>H · back to campus</p>
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=61"></script>
+<script defer src="app.js?v=63"></script>
 </body>
 </html>

@@ -1076,6 +1076,7 @@ async function loadBuildings() {
         device: deviceKind(),
         buildings_with_data: knownBuildings().length,
       });
+      maybeShowSurvey();
     });
     applyStyle();
   } catch (e) {
@@ -1618,6 +1619,69 @@ document.querySelectorAll('#wishlist .wish-btn').forEach(button => {
   });
 });
 document.getElementById('panel-close').addEventListener('click', closePanel);
+
+// ─── Returning-visitor survey ──────────────────────────────────────────────────
+// "Returning" is judged the same way the shared check-in id and the ?nostats
+// flag already are: a value kept in this browser's localStorage, never sent
+// anywhere. No accounts, no cookies, so a different day on the same browser is
+// the only signal available — good enough for "have they been here before?"
+const SURVEY_FIRST_SEEN_KEY = 'uiucSpacesFirstSeen';
+const SURVEY_DONE_KEY = 'uiucSpacesSurveyDone';
+const SURVEY_DELAY_MS = 8000;   // give them a moment to look around first
+
+try {
+  if (!localStorage.getItem(SURVEY_FIRST_SEEN_KEY)) {
+    localStorage.setItem(SURVEY_FIRST_SEEN_KEY, new Date().toDateString());
+  }
+} catch (e) { /* private browsing, storage disabled, etc. */ }
+
+function isReturningVisitor() {
+  try {
+    const firstSeen = localStorage.getItem(SURVEY_FIRST_SEEN_KEY);
+    return !!firstSeen && firstSeen !== new Date().toDateString();
+  } catch (e) { return false; }
+}
+
+function surveyDone() {
+  try { return localStorage.getItem(SURVEY_DONE_KEY) === '1'; } catch (e) { return false; }
+}
+
+function markSurveyDone() {
+  try { localStorage.setItem(SURVEY_DONE_KEY, '1'); } catch (e) {}
+}
+
+const survey = document.getElementById('survey');
+
+function dismissSurvey() {
+  survey.classList.remove('show');
+  document.body.classList.remove('survey-open');
+}
+
+function maybeShowSurvey() {
+  // Opting out of stats means opting out of this too — same signal either way.
+  if (analyticsExcluded() || surveyDone() || !isReturningVisitor()) return;
+  setTimeout(() => {
+    if (surveyDone() || panelBuilding) return;   // they may have answered or opened a building meanwhile
+    survey.classList.add('show');
+    // On a narrow screen the survey and the legend want the same corner —
+    // lets the stylesheet clear the legend out of its way, same as the panel.
+    document.body.classList.add('survey-open');
+  }, SURVEY_DELAY_MS);
+}
+
+document.querySelectorAll('#survey .survey-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    track('survey_helped', { answer: button.dataset.answer, device: deviceKind() });
+    markSurveyDone();
+    dismissSurvey();
+  });
+});
+
+document.getElementById('survey-close').addEventListener('click', () => {
+  track('survey_helped', { answer: 'dismissed', device: deviceKind() });
+  markSurveyDone();
+  dismissSurvey();
+});
 
 handler.setInputAction((click) => {
   const name = buildingNameAt(click.position);
