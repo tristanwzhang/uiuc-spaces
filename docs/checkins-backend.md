@@ -37,7 +37,24 @@ already works.
 
 ## Abuse notes
 
-No accounts, so anyone could spam. Mitigations: the per-minute limit above, the
-existing trust rules (a single report only nudges the estimate; disagreeing reports
-count less), and reports fading out after 2 hours. Real prevention would need
-logins, which would cost most of the users.
+No accounts, so anyone could spam. Original mitigations: the per-minute limit
+above, the existing trust rules (a single report only nudges the estimate;
+disagreeing reports count less), and reports fading out after 2 hours. Real
+prevention would need logins, which would cost most of the users.
+
+**2026-09-29: this was tested and found insufficient.** Something POSTed
+directly to `/rest/v1/checkins` (never touching the site, so PostHog's
+`checkin_submitted` stayed silent) generating a fresh `browser_id` on every
+request — free to do, since browser_id is entirely client-supplied — which
+defeats the per-browser rate limit completely. Worse, it defeats the
+outlier-discounting too: that logic only protects against a *few* stray
+reports disagreeing with the pattern; a flood of reports that all *agree*
+with each other ("packed", 499 of 500 in the sample) is exactly what it
+trusts more, not less. ~3,000 fake rows landed in one day.
+
+Fix in `scripts/supabase_harden_abuse.sql`: an IP-based limit (hashed, logged
+in a table PostgREST never serves, so no IP is ever exposed via the API),
+independent of anything the client sends. Raises the bar from "generate a
+UUID" to "control multiple real IPs" — real prevention against a determined,
+IP-rotating attacker would still need accounts or a captcha-gated Edge
+Function in front of the insert, which isn't built.
