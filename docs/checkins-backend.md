@@ -58,3 +58,28 @@ independent of anything the client sends. Raises the bar from "generate a
 UUID" to "control multiple real IPs" — real prevention against a determined,
 IP-rotating attacker would still need accounts or a captcha-gated Edge
 Function in front of the insert, which isn't built.
+
+**Measured after that fix shipped: the limit holds, and it isn't enough.**
+The trigger is working — inserts are capped at 5/minute per IP, confirmed by
+counting rows per minute. The source simply throttled to sit just under the
+cap (4–5/minute, sustained) and kept going. That is ~300 rows/hour, which
+refills the map's entire 2-hour read window in about 90 minutes, so any
+one-time purge buys roughly an hour before the map looks exactly as it did
+before. The rate staying pinned just under a *per-IP* cap also suggests a
+single IP rather than a rotating pool — which is the case a captcha in front
+of the insert would actually stop.
+
+Two things this taught us about filtering the junk after the fact:
+
+- **"Delete reports that disagree with the usual pattern" does not separate
+  fake from real.** Scored against the page's own estimates, 321 of 446 rows
+  in the window deviated by more than `CHECKIN_SURPRISE_SPAN`. The other 125
+  were *also* fake — they just landed on buildings busy enough that "packed"
+  wasn't a surprise. Agreement with the estimate is evidence about the
+  building, not about the reporter.
+- **In that window there were no genuine reports at all** to protect: 441 of
+  446 rows were `packed`, spread evenly over 70 buildings (5–14 each), every
+  one with a fresh `browser_id`; the remaining 5 were our own test rows. A
+  script walking the building list, not students. So cleanup here is not a
+  precision problem — it's `delete from public.checkins`, and the only
+  question worth arguing about is how to stop the refill.
