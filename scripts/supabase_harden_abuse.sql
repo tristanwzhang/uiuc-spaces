@@ -42,12 +42,14 @@ create or replace function public.enforce_checkin_rate_limit()
 returns trigger
 language plpgsql
 security definer
-set search_path = public
+-- pgcrypto's digest() lives in the extensions schema on Supabase by default
+-- (not public) — include both rather than guess which one it's actually in.
+set search_path = public, extensions
 as $$
 declare
-  raw_ip  text;
-  ip_hash text;
-  ip_hits int;
+  raw_ip    text;
+  v_ip_hash text;
+  ip_hits   int;
 begin
   -- Original per-browser-per-building limit. Kept as a cheap first check,
   -- but a script can regenerate browser_id for free, so it's no longer the
@@ -73,11 +75,15 @@ begin
   );
 
   if raw_ip <> '' then
-    ip_hash := encode(digest(raw_ip, 'sha256'), 'hex');
+    v_ip_hash := encode(digest(raw_ip, 'sha256'), 'hex');
 
+    -- Named v_ip_hash rather than ip_hash on purpose: a local variable with
+    -- the same name as the ip_hash column below would make the comparison
+    -- "ip_hash = ip_hash" — always true, comparing the column to itself —
+    -- rather than to this variable. Postgres may or may not warn about it.
     select count(*) into ip_hits
     from public.checkin_ip_log
-    where ip_hash = ip_hash
+    where ip_hash = v_ip_hash
       and created_at > now() - interval '1 minute';
 
     -- Adjust this if 5/minute turns out to be too strict or too loose for
@@ -87,7 +93,7 @@ begin
         using errcode = '53400';
     end if;
 
-    insert into public.checkin_ip_log (ip_hash, building) values (ip_hash, new.building);
+    insert into public.checkin_ip_log (ip_hash, building) values (v_ip_hash, new.building);
   end if;
 
   return new;
