@@ -1112,12 +1112,41 @@ document.addEventListener('wheel', (e) => {
   }));
 }, { capture: true, passive: false });
 
-document.addEventListener('keydown', (e) => {
-  if (e.key !== 'h' && e.key !== 'H') return;
+/** The default view, used by the H key and by zooming a study pick back out. */
+function flyHome(duration = 1.2) {
   viewer.camera.flyToBoundingSphere(new Cesium.BoundingSphere(CAMPUS_CENTER, 1), {
     offset: HOME_VIEW,
-    duration: 1.2,
+    duration,
   });
+}
+
+// How far from a building to sit once zoomed in. Comfortably inside the
+// controller's 60–6000 m range, and close enough to read its neighbours.
+const PICK_ZOOM_RANGE = 320;
+
+/**
+ * Fly to one building, keeping the heading and pitch the view already has.
+ * Letting Cesium choose its own orientation would undo the 2D/3D toggle and can
+ * land exactly straight down — the angle MIN_PITCH exists to stay away from,
+ * because heading has nothing to swing around there and a drag sends it
+ * spinning. Returns false when the building was never drawn.
+ */
+function flyToBuilding(name, duration = 1.2) {
+  const label = labels.find(l => l.name === name);
+  if (!label) return false;
+  const cam = viewer.camera;
+  cam.flyToBoundingSphere(new Cesium.BoundingSphere(label.position, 60), {
+    offset: new Cesium.HeadingPitchRange(cam.heading, cam.pitch, PICK_ZOOM_RANGE),
+    duration,
+  });
+  return true;
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'h' && e.key !== 'H') return;
+  zoomedPick = null;
+  markZoomedPick();
+  flyHome();
 });
 
 // ─── 2D / 3D toggle ───────────────────────────────────────────────────────────
@@ -1853,6 +1882,40 @@ function picksEnabled() {
   catch (e) { return true; }
 }
 
+// Which pick the camera is currently zoomed into, so tapping it again zooms
+// back out. Kept here rather than read off the DOM because the card re-renders
+// on every check-in poll, which would throw the state away.
+let zoomedPick = null;
+
+/**
+ * Zoom to a pick, retrying briefly if it isn't on the map yet. Buildings are
+ * labelled as their tiles arrive, which finishes a few seconds after the card
+ * is already on screen and tappable, so an early tap would otherwise find no
+ * position and silently do nothing at all.
+ */
+function zoomToPick(name, attempt = 0) {
+  if (flyToBuilding(name)) return;
+  if (attempt >= 12) return;   // give up after ~3s and leave the view alone
+  setTimeout(() => {
+    if (zoomedPick === name) zoomToPick(name, attempt + 1);
+  }, 250);
+}
+
+/**
+ * Reflect the zoom state on the buttons. The active one says so in words as
+ * well as colour — tapping a thing again to undo it isn't discoverable
+ * otherwise, especially on a phone where there's no hover to hint at it.
+ */
+function markZoomedPick() {
+  for (const el of pickList.querySelectorAll('.pick-item')) {
+    const on = el.dataset.building === zoomedPick;
+    el.classList.toggle('is-zoomed', on);
+    el.setAttribute('aria-pressed', String(on));
+    const meta = el.querySelector('.pick-meta');
+    meta.textContent = on ? `${meta.dataset.base} · tap to zoom out` : meta.dataset.base;
+  }
+}
+
 function renderPicks() {
   if (!pickCard) return;
   if (!picksEnabled()) { pickCard.hidden = true; return; }
@@ -1871,6 +1934,7 @@ function renderPicks() {
     const item = document.createElement('button');
     item.type = 'button';
     item.className = 'pick-item';
+    item.dataset.building = name;
 
     const label = document.createElement('span');
     label.className = 'pick-name';
@@ -1878,20 +1942,36 @@ function renderPicks() {
 
     const meta = document.createElement('span');
     meta.className = 'pick-meta';
-    meta.textContent = until == null
+    meta.dataset.base = until == null
       ? busyWord(occ)
       : `${busyWord(occ)} · until ${fmtHour(until)}`;
+    meta.textContent = meta.dataset.base;
 
     item.append(label, meta);
     item.addEventListener('click', () => {
-      openPanel(name);
-      track('pick_opened', { building: name, device: deviceKind(), source: occ.source });
+      if (zoomedPick === name) {
+        zoomedPick = null;
+        flyHome();
+        track('pick_zoomed_out', { building: name, device: deviceKind() });
+      } else {
+        zoomedPick = name;
+        zoomToPick(name);
+        openPanel(name);
+        track('pick_opened', { building: name, device: deviceKind(), source: occ.source });
+      }
+      markZoomedPick();
     });
 
     const li = document.createElement('li');
     li.append(item);
     return li;
   }));
+
+  // A pick can drop out of the list as the hour changes. Leaving the state
+  // pointing at a button that's gone would strand the view zoomed in with
+  // nothing left to tap to get back out.
+  if (zoomedPick && !picks.some(p => p.name === zoomedPick)) zoomedPick = null;
+  markZoomedPick();
   pickNote.hidden = true;
 }
 
