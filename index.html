@@ -334,6 +334,8 @@
   #pick.is-collapsed { padding-bottom: 5px; }
   #pick.is-collapsed #pick-toggle { padding-bottom: 0; }
 
+  /* Capped and scrollable: enough slots for the less obvious places to show up
+     without the card taking the screen back. Roughly four rows visible. */
   #pick-list {
     list-style: none;
     margin: 0;
@@ -341,6 +343,18 @@
     display: flex;
     flex-direction: column;
     gap: 2px;
+    max-height: 148px;
+    overflow-y: auto;
+    overscroll-behavior: contain;   /* don't scroll the map once the list ends */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.18) transparent;
+  }
+
+  #pick-list::-webkit-scrollbar { width: 5px; }
+  #pick-list::-webkit-scrollbar-track { background: transparent; }
+  #pick-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.18);
+    border-radius: 3px;
   }
 
   .pick-item {
@@ -1056,6 +1070,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=68"></script>
+<script defer src="app.js?v=71"></script>
 </body>
 </html>

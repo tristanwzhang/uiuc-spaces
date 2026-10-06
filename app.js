@@ -753,35 +753,51 @@ function knownBuildings() {
 // ARC and Ikenberry Dining Hall were considered and cut by the site owner as
 // gym and food only. Extend this list rather than trying to infer membership;
 // leaving a real study spot out is better than recommending somewhere useless.
-// The number is how much students actually want to study there, which is not
-// the same thing as how empty it is. Ranking on emptiness alone can never
-// recommend a library: the type profiles put the libraries at 62-86% through
-// the whole study day while classroom buildings sit at 0-46%, so the quietest
-// open spot is always a classroom building and Grainger never appears at all.
+// How well-suited each place is to actually sitting and working — purpose-built
+// study space, then study-friendly common space, then buildings with lounges
+// and empty classrooms. Deliberately NOT how popular or well-known it is: the
+// whole value of a recommendation is surfacing somewhere you hadn't thought of,
+// and nobody needs an app to be told about Grainger.
 //
-// The weights come from what students actually open on the map over 30 days,
-// which falls into three clear clusters rather than a smooth curve:
-//   144, 78, 70 opens  — the three libraries
-//   42, 38, 31         — the Union, BIF, CIF
-//   27, 25, 24, 24, 20 — everything else
-// So the tiers are 1.0 / 0.6 / 0.35, and the exact values aren't load-bearing;
-// what matters is the gap between clusters, which the data gives us.
+// The spread is kept narrow (1 / 0.75 / 0.5) so being quiet right now matters
+// more than the tier does. A wider spread buries the smaller places entirely,
+// which defeats the point. It still has to be a spread rather than nothing: a
+// flat weight ranks purely on emptiness, and the type profiles put the
+// libraries at 62-86% all day against 0-46% for classroom buildings, so a
+// library could then never be recommended at any hour.
 const STUDY_SPOTS = {
   'Grainger Engineering Library': 1,
   'Main Library': 1,
   'Funk Library': 1,
-  'Illini Union': 0.6,
-  'Business Instructional Facility': 0.6,
-  'Campus Instructional Facility': 0.6,
-  'Beckman Institute': 0.6,
-  'Smith Memorial Hall': 0.35,
-  'Electrical and Computer Engineering Building': 0.35,
-  'University of Illinois College of Law': 0.35,
-  'Armory': 0.35,
-  'Student Dining and Residential Programs (SDRP)': 0.35,
+  'Illini Union': 0.75,
+  'Business Instructional Facility': 0.75,
+  'Campus Instructional Facility': 0.75,
+  'Beckman Institute': 0.75,
+  'Smith Memorial Hall': 0.5,
+  'Electrical and Computer Engineering Building': 0.5,
+  'University of Illinois College of Law': 0.5,
+  'Armory': 0.5,
+  'Student Dining and Residential Programs (SDRP)': 0.5,
 };
 
-const PICK_COUNT = 3;
+// The list scrolls, so this can be generous. More slots is what lets the
+// quieter, less obvious places show up alongside the ones everyone knows.
+const PICK_COUNT = 6;
+
+// Shorter names for the card only — the map keeps the full ones. Three names
+// wrap to three lines each in a column this narrow, which made six picks taller
+// than the whole card was before. These are the forms already in use on campus
+// and in this file (BIF, SDRP), not invented abbreviations.
+const PICK_LABELS = {
+  'Grainger Engineering Library': 'Grainger Library',
+  'Campus Instructional Facility': 'CIF',
+  'Electrical and Computer Engineering Building': 'ECEB',
+  'University of Illinois College of Law': 'College of Law',
+};
+
+function pickLabel(name) {
+  return PICK_LABELS[name] ?? BUILDINGS[name]?.label ?? name;
+}
 
 /**
  * The hour a building closes, in campus time, or null when today's hours aren't
@@ -827,13 +843,16 @@ function fmtHour(h) {
  * so a guess never reads like a measurement.
  */
 function busyWord(occ) {
-  const level = occ.value < 0.3 ? 'quiet' : occ.value < 0.55 ? 'moderately busy' : 'busy';
-  switch (occ.source) {
-    case 'reported':  return `students say it's ${level}`;
-    case 'measured':  return `usually ${level} at this hour`;
-    case 'estimated': return `${level} — from class schedules`;
-    default:          return `usually ${level} around now`;
-  }
+  const level = occ.value < 0.3 ? 'quiet' : occ.value < 0.55 ? 'fairly busy' : 'busy';
+  // Only a student report describes right now; everything else is a prediction,
+  // and "usually" is the word that carries that. Which *kind* of prediction —
+  // class timetable, Google, or the building-type profile — is a distinction
+  // that matters to us, not to someone deciding where to walk, and spelling it
+  // out here wrapped every row onto a third line. The panel still names the
+  // exact source when they tap through.
+  return occ.source === 'reported'
+    ? `students say it's ${level}`
+    : `usually ${level} now`;
 }
 
 // classBusyness() divides by each building's OWN peak, which is right for
@@ -1996,7 +2015,7 @@ function renderPicks() {
 
     const label = document.createElement('span');
     label.className = 'pick-name';
-    label.textContent = BUILDINGS[name]?.label ?? name;
+    label.textContent = pickLabel(name);
 
     const meta = document.createElement('span');
     meta.className = 'pick-meta';
