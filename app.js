@@ -742,6 +742,122 @@ function knownBuildings() {
   return [...names];
 }
 
+// ─── Study picks ──────────────────────────────────────────────────────────────
+// Which places a student can actually sit and work in. This list is written out
+// by hand on purpose, because ranking the whole map by "least busy" does not
+// answer the question: at a Wednesday 2:30pm it returns the Stock Pavilion,
+// Spurlock Museum and the National Soybean Research Center, all at 0%. A 0%
+// estimate there only means no classes are scheduled in the building — not that
+// it's somewhere you can study.
+//
+// ARC and Ikenberry Dining Hall were considered and cut by the site owner as
+// gym and food only. Extend this list rather than trying to infer membership;
+// leaving a real study spot out is better than recommending somewhere useless.
+const STUDY_SPOTS = [
+  'Grainger Engineering Library',
+  'Main Library',
+  'Funk Library',
+  'Illini Union',
+  'Beckman Institute',
+  'Campus Instructional Facility',
+  'Smith Memorial Hall',
+  'Business Instructional Facility',
+  'Electrical and Computer Engineering Building',
+  'University of Illinois College of Law',
+  'Armory',
+  'Student Dining and Residential Programs (SDRP)',
+];
+
+const PICK_COUNT = 3;
+
+/**
+ * The hour a building closes, in campus time, or null when today's hours aren't
+ * published or it isn't open right now. Can exceed 24 before wrapping — a
+ * library open "until 2am" closes at 26 on the previous day's row.
+ */
+function closingHour(name, date, time) {
+  const entry = data.hours?.buildings?.[name];
+  if (!entry) return null;
+
+  // Still open from yesterday's late hours, same case hoursStatus() handles.
+  const yesterday = publishedRanges(entry, shiftDate(date, -1)) || [];
+  const late = yesterday.find(([, close]) => close > 24 && time < close - 24);
+  if (late) return late[1];
+
+  const today = publishedRanges(entry, date);
+  if (!today) return null;
+  const open = today.find(([from, close]) => time >= from && time < close);
+  if (!open) return null;
+
+  // A range covering the whole day (Grainger publishes [0, 24]) has no closing
+  // time worth printing: "until 12am" reads as a time that already passed, when
+  // it actually means ~22 hours from now. Say nothing rather than mislead.
+  return open[0] <= 0 && open[1] >= 24 ? null : open[1];
+}
+
+function fmtHour(h) {
+  const wrapped = ((h % 24) + 24) % 24;
+  const hour = Math.floor(wrapped);
+  const min = Math.round((wrapped - hour) * 60);
+  if (!min && hour === 0)  return 'midnight';
+  if (!min && hour === 12) return 'noon';
+  const h12 = hour % 12 === 0 ? 12 : hour % 12;
+  const suffix = hour < 12 ? 'am' : 'pm';
+  return min ? `${h12}:${String(min).padStart(2, '0')}${suffix}` : `${h12}${suffix}`;
+}
+
+/**
+ * How busy a pick is, in words rather than a percentage. Only `reported` is
+ * about right now; the rest are predictions, and `typical` is a generic curve
+ * for the building's type, so printing "36% full" next to it would be inventing
+ * precision the number doesn't have. The wording also says where it came from,
+ * so a guess never reads like a measurement.
+ */
+function busyWord(occ) {
+  const level = occ.value < 0.3 ? 'quiet' : occ.value < 0.55 ? 'moderately busy' : 'busy';
+  switch (occ.source) {
+    case 'reported':  return `students say it's ${level}`;
+    case 'measured':  return `usually ${level} at this hour`;
+    case 'estimated': return `${level} — from class schedules`;
+    default:          return `usually ${level} around now`;
+  }
+}
+
+// classBusyness() divides by each building's OWN peak, which is right for
+// colouring the map but wrong for ranking buildings against each other: a
+// building the timetable barely covers reads "0% — quiet" when it really means
+// "no classes here, and nothing else is known". Beckman peaks at 9 class-hours
+// against CIF's 143 — it's a drop-in research building whose occupancy simply
+// isn't explained by its timetable, so a class estimate there is noise, and
+// ranking on it put Beckman top at both 10:30am and 2:30pm.
+//
+// So a class estimate only earns a ranking when the building is genuinely
+// class-driven. The two groups are far apart (3-9 class-hours for the
+// libraries, the Union and Law; 68-143 for CIF, BIF, ECEB, Armory and Smith),
+// so any cutoff from roughly 20 to 60 splits them identically — the exact
+// number here is not load-bearing. Buildings that fail it keep their own
+// typical-pattern estimate if they have one, and are left out entirely if they
+// don't, rather than being recommended on a number that means nothing.
+const CLASS_COVERAGE_MIN = 30;
+
+function classDriven(name) {
+  return (data.classActivity?.buildings?.[name]?.peak ?? 0) >= CLASS_COVERAGE_MIN;
+}
+
+/** Open study spots we can actually say something about, quietest first. */
+function studyPicks(limit = PICK_COUNT) {
+  const { date, time } = campusNow();
+  return STUDY_SPOTS
+    .map(name => ({ name, occ: buildingOccupancy(name) }))
+    .filter(({ name, occ }) =>
+      occ
+      && !['closed', 'unknown'].includes(occ.source)
+      && (occ.source !== 'estimated' || classDriven(name)))
+    .sort((a, b) => a.occ.value - b.occ.value)
+    .slice(0, limit)
+    .map(pick => ({ ...pick, until: closingHour(pick.name, date, time) }));
+}
+
 // ─── Colours and labels ───────────────────────────────────────────────────────
 function occToColor(t) {
   let r, g, b;
@@ -1722,10 +1838,68 @@ function updateHeader() {
   document.getElementById('header-sub').textContent = period.label ? `${base} · ${period.label}` : base;
 }
 
+// ─── Study picks card ─────────────────────────────────────────────────────────
+const pickCard = document.getElementById('pick');
+const pickList = document.getElementById('pick-list');
+const pickNote = document.getElementById('pick-note');
+
+/**
+ * Ships to everyone, but a PostHog flag can switch it off without a deploy.
+ * Unknown means on: the flag is undefined whenever analytics hasn't loaded or
+ * is opted out via ?nostats=1, and the card should still work in those cases.
+ */
+function picksEnabled() {
+  try { return window.posthog?.isFeatureEnabled?.('study-picks') !== false; }
+  catch (e) { return true; }
+}
+
+function renderPicks() {
+  if (!pickCard) return;
+  if (!picksEnabled()) { pickCard.hidden = true; return; }
+
+  const picks = studyPicks();
+  pickCard.hidden = false;
+
+  if (!picks.length) {
+    pickList.replaceChildren();
+    pickNote.textContent = 'Nothing on the study list is open right now.';
+    pickNote.hidden = false;
+    return;
+  }
+
+  pickList.replaceChildren(...picks.map(({ name, occ, until }) => {
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'pick-item';
+
+    const label = document.createElement('span');
+    label.className = 'pick-name';
+    label.textContent = BUILDINGS[name]?.label ?? name;
+
+    const meta = document.createElement('span');
+    meta.className = 'pick-meta';
+    meta.textContent = until == null
+      ? busyWord(occ)
+      : `${busyWord(occ)} · until ${fmtHour(until)}`;
+
+    item.append(label, meta);
+    item.addEventListener('click', () => {
+      openPanel(name);
+      track('pick_opened', { building: name, device: deviceKind(), source: occ.source });
+    });
+
+    const li = document.createElement('li');
+    li.append(item);
+    return li;
+  }));
+  pickNote.hidden = true;
+}
+
 function refresh({ keepThanks = false } = {}) {
   updateHeader();
   applyStyle();
   updateStats();
+  renderPicks();
   if (panelBuilding) openPanel(panelBuilding, keepThanks);
 }
 

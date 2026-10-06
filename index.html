@@ -271,6 +271,61 @@
   .chip-val { font-weight: 600; color: #f0f4f8; }
   .chip-lbl { color: #5a6478; }
 
+  /* ── Study picks ──
+     Sits under the summary chips so the answer is on screen without anyone
+     having to find and tap a building first. */
+  #pick {
+    position: absolute;
+    top: calc(128px + var(--safe-top));
+    left: 28px;
+    z-index: 100;
+    width: 268px;
+    max-width: calc(100vw - 56px);
+    background: rgba(10,14,20,0.82);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 11px 12px 9px;
+  }
+
+  .pick-head {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #5a6478;
+    margin-bottom: 7px;
+  }
+
+  #pick-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .pick-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: none;
+    border: 0;
+    border-radius: 7px;
+    padding: 6px 7px;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .pick-item:hover,
+  .pick-item:focus-visible { background: rgba(255,255,255,0.06); }
+
+  .pick-name { font-size: 13px; font-weight: 600; color: #f0f4f8; }
+  .pick-meta { font-size: 11.5px; color: #8a94a8; }
+  .pick-note { font-size: 11.5px; color: #8a94a8; padding: 2px 7px 1px; }
+
   /* ── Compass ── */
   #compass {
     position: absolute;
@@ -719,6 +774,15 @@
     #header .disclaimer { font-size: 10px; margin-top: 1px; }
     #stats { top: calc(52px + var(--safe-top)); left: 16px; right: 16px; flex-wrap: wrap; gap: 6px; }
     #compass { top: calc(92px + var(--safe-top)); right: 16px; width: 44px; height: 44px; }
+    /* Stops short of the right edge so it clears the compass button rather
+       than sliding underneath it. */
+    #pick {
+      top: calc(88px + var(--safe-top));
+      left: 16px; right: 72px;
+      width: auto; max-width: none;
+      padding: 9px 10px 7px;
+    }
+    .pick-item { padding: 7px; }
     .chip { padding: 5px 10px; font-size: 11.5px; }
     #legend { left: 16px; bottom: calc(40px + var(--safe-bottom)); }
     #hint { display: none; }
@@ -872,6 +936,12 @@
   </div>
 </div>
 
+<div id="pick" hidden>
+  <div class="pick-head">Open now, good for studying</div>
+  <ol id="pick-list"></ol>
+  <div class="pick-note" id="pick-note" hidden></div>
+</div>
+
 <button id="compass" aria-label="Switch to a top-down view, north at the top" title="Switch to a top-down view, north at the top">
   <span id="compass-label" aria-hidden="true">2D</span>
 </button>
@@ -936,6 +1006,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=63"></script>
+<script defer src="app.js?v=64"></script>
 </body>
 </html>
