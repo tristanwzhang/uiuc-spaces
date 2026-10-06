@@ -753,20 +753,33 @@ function knownBuildings() {
 // ARC and Ikenberry Dining Hall were considered and cut by the site owner as
 // gym and food only. Extend this list rather than trying to infer membership;
 // leaving a real study spot out is better than recommending somewhere useless.
-const STUDY_SPOTS = [
-  'Grainger Engineering Library',
-  'Main Library',
-  'Funk Library',
-  'Illini Union',
-  'Beckman Institute',
-  'Campus Instructional Facility',
-  'Smith Memorial Hall',
-  'Business Instructional Facility',
-  'Electrical and Computer Engineering Building',
-  'University of Illinois College of Law',
-  'Armory',
-  'Student Dining and Residential Programs (SDRP)',
-];
+// The number is how much students actually want to study there, which is not
+// the same thing as how empty it is. Ranking on emptiness alone can never
+// recommend a library: the type profiles put the libraries at 62-86% through
+// the whole study day while classroom buildings sit at 0-46%, so the quietest
+// open spot is always a classroom building and Grainger never appears at all.
+//
+// The weights come from what students actually open on the map over 30 days,
+// which falls into three clear clusters rather than a smooth curve:
+//   144, 78, 70 opens  — the three libraries
+//   42, 38, 31         — the Union, BIF, CIF
+//   27, 25, 24, 24, 20 — everything else
+// So the tiers are 1.0 / 0.6 / 0.35, and the exact values aren't load-bearing;
+// what matters is the gap between clusters, which the data gives us.
+const STUDY_SPOTS = {
+  'Grainger Engineering Library': 1,
+  'Main Library': 1,
+  'Funk Library': 1,
+  'Illini Union': 0.6,
+  'Business Instructional Facility': 0.6,
+  'Campus Instructional Facility': 0.6,
+  'Beckman Institute': 0.6,
+  'Smith Memorial Hall': 0.35,
+  'Electrical and Computer Engineering Building': 0.35,
+  'University of Illinois College of Law': 0.35,
+  'Armory': 0.35,
+  'Student Dining and Residential Programs (SDRP)': 0.35,
+};
 
 const PICK_COUNT = 3;
 
@@ -844,16 +857,26 @@ function classDriven(name) {
   return (data.classActivity?.buildings?.[name]?.peak ?? 0) >= CLASS_COVERAGE_MIN;
 }
 
-/** Open study spots we can actually say something about, quietest first. */
+/**
+ * Open study spots we can actually say something about, best first.
+ *
+ * Ranked on how good an option each one is right now — how much people want to
+ * be there, discounted by how full it is — rather than on emptiness. Because
+ * it's a product, somewhere people want badly still wins while it has room, and
+ * drops away as it fills: a library at 60% beats a lecture building at 25%, but
+ * the same library at 90% doesn't. That matches what someone opening the site
+ * is actually asking, which is "where should I go", not "what is emptiest".
+ */
 function studyPicks(limit = PICK_COUNT) {
   const { date, time } = campusNow();
-  return STUDY_SPOTS
+  return Object.keys(STUDY_SPOTS)
     .map(name => ({ name, occ: buildingOccupancy(name) }))
     .filter(({ name, occ }) =>
       occ
       && !['closed', 'unknown'].includes(occ.source)
       && (occ.source !== 'estimated' || classDriven(name)))
-    .sort((a, b) => a.occ.value - b.occ.value)
+    .map(pick => ({ ...pick, appeal: STUDY_SPOTS[pick.name] * (1 - pick.occ.value) }))
+    .sort((a, b) => b.appeal - a.appeal)
     .slice(0, limit)
     .map(pick => ({ ...pick, until: closingHour(pick.name, date, time) }));
 }
