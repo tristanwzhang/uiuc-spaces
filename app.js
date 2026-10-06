@@ -1871,6 +1871,40 @@ function updateHeader() {
 const pickCard = document.getElementById('pick');
 const pickList = document.getElementById('pick-list');
 const pickNote = document.getElementById('pick-note');
+const pickToggle = document.getElementById('pick-toggle');
+
+// Collapsing is remembered per browser: the card is worth about a fifth of a
+// phone screen, and someone who has decided they don't want it there shouldn't
+// have to dismiss it again on every visit. Same localStorage treatment as the
+// other preferences here — it can throw outright in private mode, so every
+// read and write is guarded and the card simply starts expanded if it fails.
+const PICKS_COLLAPSED_KEY = 'uiucSpacesPicksCollapsed';
+
+function picksCollapsed() {
+  try { return localStorage.getItem(PICKS_COLLAPSED_KEY) === '1'; } catch (e) { return false; }
+}
+
+function setPicksCollapsed(collapsed) {
+  try {
+    if (collapsed) localStorage.setItem(PICKS_COLLAPSED_KEY, '1');
+    else localStorage.removeItem(PICKS_COLLAPSED_KEY);
+  } catch (e) { /* preference just won't survive the session */ }
+  applyPicksCollapsed();
+}
+
+function applyPicksCollapsed() {
+  const collapsed = picksCollapsed();
+  pickCard.classList.toggle('is-collapsed', collapsed);
+  pickToggle.setAttribute('aria-expanded', String(!collapsed));
+  pickToggle.title = collapsed ? 'Show study picks' : 'Hide study picks';
+  pickToggle.setAttribute('aria-label', pickToggle.title);
+}
+
+pickToggle.addEventListener('click', () => {
+  const collapsed = !picksCollapsed();
+  setPicksCollapsed(collapsed);
+  track('picks_toggled', { collapsed, device: deviceKind() });
+});
 
 /**
  * Ships to everyone, but a PostHog flag can switch it off without a deploy.
@@ -1922,6 +1956,7 @@ function renderPicks() {
 
   const picks = studyPicks();
   pickCard.hidden = false;
+  applyPicksCollapsed();
 
   if (!picks.length) {
     pickList.replaceChildren();

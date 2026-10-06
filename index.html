@@ -287,13 +287,52 @@
     padding: 11px 12px 9px;
   }
 
+  /* The whole header row is the collapse control: a wide, obvious target
+     rather than a lone small chevron, which matters most on a phone. */
+  #pick-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: none;
+    border: 0;
+    padding: 0 1px 7px;
+    font: inherit;
+    cursor: pointer;
+  }
+
   .pick-head {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: #5a6478;
-    margin-bottom: 7px;
   }
+
+  #pick-toggle:hover .pick-head,
+  #pick-toggle:focus-visible .pick-head { color: #8a94a8; }
+
+  /* Drawn rather than a glyph so it points the same way in every font. */
+  #pick-chevron {
+    width: 9px; height: 9px;
+    flex: none;
+    margin-bottom: 2px;
+    border-right: 1.6px solid #6b7488;
+    border-bottom: 1.6px solid #6b7488;
+    transform: rotate(45deg);          /* expanded: pointing down */
+    transition: transform 0.18s ease;
+  }
+
+  #pick-toggle[aria-expanded="false"] #pick-chevron {
+    transform: rotate(-135deg);        /* collapsed: pointing up */
+    margin-bottom: -2px;
+  }
+
+  #pick.is-collapsed #pick-body { display: none; }
+
+  /* Nothing below the header when collapsed, so drop its padding too. */
+  #pick.is-collapsed { padding-bottom: 5px; }
+  #pick.is-collapsed #pick-toggle { padding-bottom: 0; }
 
   #pick-list {
     list-style: none;
@@ -786,6 +825,9 @@
       padding: 9px 10px 7px;
     }
     .pick-item { padding: 7px; }
+    /* Matches the 44px minimum used for the compass button — the header row is
+       the only way to get the card back once it's collapsed. */
+    #pick-toggle { min-height: 44px; }
     .chip { padding: 5px 10px; font-size: 11.5px; }
     #legend { left: 16px; bottom: calc(40px + var(--safe-bottom)); }
     #hint { display: none; }
@@ -940,9 +982,14 @@
 </div>
 
 <div id="pick" hidden>
-  <div class="pick-head">Open now, good for studying</div>
-  <ol id="pick-list"></ol>
-  <div class="pick-note" id="pick-note" hidden></div>
+  <button id="pick-toggle" type="button" aria-expanded="true" aria-controls="pick-body">
+    <span class="pick-head">Open now, good for studying</span>
+    <span id="pick-chevron" aria-hidden="true"></span>
+  </button>
+  <div id="pick-body">
+    <ol id="pick-list"></ol>
+    <div class="pick-note" id="pick-note" hidden></div>
+  </div>
 </div>
 
 <button id="compass" aria-label="Switch to a top-down view, north at the top" title="Switch to a top-down view, north at the top">
@@ -1009,6 +1056,6 @@
 </div>
 
 <script defer src="basemap-render.js?v=35"></script>
-<script defer src="app.js?v=66"></script>
+<script defer src="app.js?v=67"></script>
 </body>
 </html>
