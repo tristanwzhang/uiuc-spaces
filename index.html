@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CampusQuiet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://campusquiet.com/uiuc">
+<meta http-equiv="refresh" content="0; url=https://campusquiet.com/uiuc">
+<script>
+// This project is now CampusQuiet (campusquiet.com). Old github.io links keep working: strip the old
+// repo prefix and send the visitor to the same page on the new domain.
+(function () {
+  var path = location.pathname.replace(/^\/uiuc-spaces\/?/, '/');
+  if (path === '/' || path === '/index.html') path = '/uiuc';
+  location.replace('https://campusquiet.com' + path + location.search + location.hash);
+})();
+</script>
+</head>
+<body><p>Moved to <a href="https://campusquiet.com/uiuc">campusquiet.com</a>.</p></body>
+</html>
